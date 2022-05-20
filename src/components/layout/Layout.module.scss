@@ -1,0 +1,26 @@
+.wrapper {
+  width: 1680px;
+  margin: 0 auto;
+  display: flex;
+  background-color: var(--main-bg);
+  color: var(--main-txt);
+}
+
+.sidebar {
+  width: 420px;
+  background-color: var(--main-bg);
+
+  border: var(--main-border);
+}
+
+.content {
+  flex: 1;
+  position: relative;
+  border: var(--main-border);
+  background: linear-gradient(
+    36deg,
+    rgba(173, 170, 228, 0.7987570028011204) 0%,
+    rgba(19, 30, 236, 0.7287289915966386) 51%,
+    rgba(0, 212, 255, 0.6839110644257703) 100%
+  );
+}

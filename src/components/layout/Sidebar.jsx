@@ -1,5 +1,10 @@
+import classNames from "classnames/bind";
+import style from "./Layout.module.scss";
+
+const cx = classNames.bind(style);
+
 function SideBar({ children }) {
-  return <h1>side bar</h1>;
+  return <aside className={cx("sidebar")}>{children}</aside>;
 }
 
 export default SideBar;

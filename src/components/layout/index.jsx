@@ -1,12 +1,16 @@
-import SideBar from "./Sidebar";
+import classNames from "classnames/bind";
+import SideBar from "./SideBar";
 import Content from "./Content";
+import style from "./Layout.module.scss";
 
-function Layout() {
+const cx = classNames.bind(style);
+
+function Layout({ sideBar, content }) {
   return (
-    <>
-      <SideBar />
-      <Content />
-    </>
+    <div className={cx("wrapper")}>
+      <SideBar>{sideBar}</SideBar>
+      <Content>{content}</Content>
+    </div>
   );
 }
 
