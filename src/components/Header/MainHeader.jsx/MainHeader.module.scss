@@ -10,38 +10,8 @@
   cursor: pointer;
 }
 
-.chat-info {
+.chat-item {
   flex: 7;
-  display: flex;
-}
-
-.avatar {
-  width: 42px;
-  height: 42px;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.info {
-  padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.name {
-  color: var(--main-txt);
-  font-size: 1rem;
-  font-weight: 600;
-  height: 21px;
-}
-
-.status {
-  font-size: 0.84rem;
-  font-weight: 400;
-  color: var(--sub-txt);
 }
 
 .utils {
