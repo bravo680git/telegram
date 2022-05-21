@@ -20,7 +20,7 @@ function AvatarItem({ name, src }) {
       ) : (
         <div
           style={{
-            background: colors[Math.round(Math.random() * 2)],
+            background: colors[name.length % 3],
           }}
         >
           {name.slice(0, 1)}
