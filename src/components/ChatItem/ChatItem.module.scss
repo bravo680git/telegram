@@ -5,6 +5,7 @@
   background-color: var(--main-bg);
   height: 56px;
   cursor: pointer;
+  position: relative;
 }
 
 .chat-info {
@@ -37,6 +38,14 @@
 .status {
   font-size: 0.84rem;
   font-weight: 400;
+  color: var(--sub-txt);
+}
+
+.date {
+  position: absolute;
+  right: 14px;
+  top: 16px;
+  font-size: 0.8rem;
   color: var(--sub-txt);
 }
 
@@ -73,7 +82,8 @@
   }
 
   .name,
-  .status {
+  .status,
+  .date {
     color: white;
   }
 

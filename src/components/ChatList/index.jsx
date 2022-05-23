@@ -9,14 +9,17 @@ function ChatList() {
     {
       name: "Hao",
       status: "Hao joined telegram",
+      date: "May 4",
     },
     {
       name: "Nhien",
       status: "Hao joined telegram",
+      date: "May 10",
     },
     {
       name: "Binh",
       status: "Hao joined telegram",
+      date: "May 19",
     },
   ];
 

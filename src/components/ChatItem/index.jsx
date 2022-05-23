@@ -5,7 +5,7 @@ import style from "./ChatItem.module.scss";
 const cx = classNames.bind(style);
 
 function ChatItem({ data, large, hover, actived }) {
-  const { name, status } = data;
+  const { name, status, date } = data;
 
   return (
     <div className={cx("wrapper", { large, hover, actived })}>
@@ -18,6 +18,7 @@ function ChatItem({ data, large, hover, actived }) {
             <div className={cx("name")}>{name}</div>
             <div className={cx("status")}>{status}</div>
           </div>
+          {date ? <div className={cx("date")}>{date}</div> : null}
         </div>
       </div>
     </div>
