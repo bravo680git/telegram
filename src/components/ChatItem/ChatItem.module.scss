@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: center;
+  padding: 8px;
   background-color: var(--main-bg);
   height: 56px;
   cursor: pointer;
@@ -58,8 +59,10 @@
 
 .hover {
   &:hover {
-    background-color: var(--main-hover);
-    border-radius: 8px;
+    .container {
+      background-color: var(--main-hover);
+      border-radius: 8px;
+    }
   }
 }
 
@@ -72,5 +75,11 @@
   .name,
   .status {
     color: white;
+  }
+
+  &:hover {
+    .container {
+      background-color: var(--primary-color);
+    }
   }
 }
