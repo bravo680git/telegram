@@ -39,3 +39,20 @@ button:hover {
 
   --main-hover: rgba(112, 117, 121, 0.08);
 }
+
+//custom scrollbar
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--main-bg);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8d8d8da1;
+  border-radius: 50px;
+}

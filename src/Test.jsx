@@ -1,19 +1,8 @@
-import ChatItem from "./components/ChatItem";
 import Layout from "./components/Layout";
-import ChatList from "./components/ChatList";
-import ContactList from "./components/ContactList";
+import MainSidebar from "./components/Layouts/SidebarLayout/MainSidebar";
 
 function Test() {
-  return (
-    <Layout
-      sideBar={
-        <>
-          <ChatList />
-          <ContactList />
-        </>
-      }
-    />
-  );
+  return <Layout sideBar={<MainSidebar />} />;
 }
 
 export default Test;

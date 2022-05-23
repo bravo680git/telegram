@@ -24,7 +24,7 @@ function ChatList() {
   ];
 
   return (
-    <div className="wrapper">
+    <div className={cx("wrapper")}>
       {chatList.map((item, index) => (
         <div key={index} className={cx("item-container")}>
           <ChatItem data={item} large hover actived={index === 1} />

@@ -22,6 +22,22 @@ function ContactList({ fullSize }) {
       name: "Huy",
       status: "Hao joined telegram",
     },
+    {
+      name: "Hao",
+      status: "Hao joined telegram",
+    },
+    {
+      name: "Nhien",
+      status: "Hao joined telegram",
+    },
+    {
+      name: "Binh",
+      status: "Hao joined telegram",
+    },
+    {
+      name: "Huy",
+      status: "Hao joined telegram",
+    },
   ];
 
   return (

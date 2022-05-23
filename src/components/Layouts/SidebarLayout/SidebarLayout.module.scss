@@ -1,0 +1,36 @@
+.main-sidebar {
+  .body {
+    overflow: hidden;
+    padding: 0 10px;
+    height: calc(100vh - 58px);
+
+    &:hover {
+      overflow-y: scroll;
+    }
+  }
+
+  .seperate {
+    height: 12px;
+    margin: 8px 0 16px -8px;
+    width: calc(100% + 16px);
+
+    background-color: var(--sub-bg);
+    position: relative;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.06) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 0) 94%,
+        rgba(0, 0, 0, 0.06) 100%
+      );
+    }
+  }
+}
