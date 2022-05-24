@@ -1,4 +1,4 @@
-import Layout from "./components/Layout";
+import Layout from "./components/Layouts";
 import MainSidebar from "./components/Layouts/SidebarLayout/MainSidebar";
 
 function Test() {
