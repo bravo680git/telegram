@@ -68,20 +68,7 @@
     height: 100%;
     border-radius: 50%;
     position: absolute;
-    animation: active 0.4s forwards;
-  }
-}
-@keyframes active {
-  0% {
-    background-color: var(--sub-hover);
-    transform: scale(0.3) translate(70%, 70%);
-  }
-  80% {
-    background-color: var(--sub-hover);
-    transform: scale(1) translate(0, 0);
-  }
-  100% {
-    z-index: -1;
+    animation: var(--btn-active);
   }
 }
 

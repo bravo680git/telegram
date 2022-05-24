@@ -1,0 +1,35 @@
+.wrapper {
+  width: 100%;
+  background-color: var(--main-bg);
+  border-radius: 8px;
+  box-shadow: var(--menu-box-shadow);
+  padding: 8px 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--main-txt);
+  height: 50px;
+  padding-left: 16px;
+  font-weight: 500;
+
+  .icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    color: var(--sub-txt);
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--main-hover);
+  }
+}
