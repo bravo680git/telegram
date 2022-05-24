@@ -1,32 +1,13 @@
 import classNames from "classnames/bind";
-import { AiOutlineUser } from "react-icons/ai";
 import style from "./Menu.module.scss";
 import MenuItem from "./MenuItem";
 
 const cx = classNames.bind(style);
 
-function Menu({ menuItems }) {
-  const menu = [
-    {
-      text: "Username",
-      icon: AiOutlineUser,
-      onClick: () => {},
-    },
-    {
-      text: "Username",
-      icon: AiOutlineUser,
-      onClick: () => {},
-    },
-    {
-      text: "Username",
-      icon: AiOutlineUser,
-      onClick: () => {},
-    },
-  ];
-
+function Menu({ menuItems = [], footer }) {
   return (
-    <div className={cx("wrapper")}>
-      {menu.map((item, index) => (
+    <div className={cx("wrapper", { pBottom: !footer })}>
+      {menuItems.map((item, index) => (
         <MenuItem
           key={index}
           text={item.text}
@@ -34,6 +15,8 @@ function Menu({ menuItems }) {
           onClick={item.onClick}
         />
       ))}
+
+      {footer && <div className={cx("footer")}>{footer}</div>}
     </div>
   );
 }

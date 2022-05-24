@@ -56,7 +56,7 @@
   .menu {
     visibility: visible;
     transform-origin: top left;
-    animation: var(--menu-open) 0.2s;
+    animation: var(--menu-open) 0.1s;
   }
 
   &::after {
@@ -72,9 +72,8 @@
 //menu is un actived
 .unActive {
   .menu {
-    transform-origin: bottom right;
-    animation: var(--menu-close) 0.2s;
-    visibility: hidden;
+    transform-origin: top left;
+    animation: var(--menu-close) 0.2s forwards;
   }
 }
 
