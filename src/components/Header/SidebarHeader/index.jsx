@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import { useState, useEffect } from "react";
 import { AiOutlineArrowLeft, AiOutlineMenu } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import menuItems from "../../../utils/MenuItemsList";
+import menuItems from "../../../utils/mainMenuItemsList";
 import Menu from "../../Menu";
 import style from "./SidebarHeader.module.scss";
 
