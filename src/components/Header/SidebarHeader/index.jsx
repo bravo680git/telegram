@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AiOutlineArrowLeft, AiOutlineMenu } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import menuItems from "../../../utils/mainMenuItemsList";
@@ -8,13 +8,20 @@ import style from "./SidebarHeader.module.scss";
 
 const cx = classNames.bind(style);
 
-function SidebarHeader({ closeMenu }) {
+function SidebarHeader({ closeMenu, focused }) {
   const [isFocus, setIsFocus] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const inputRef = useRef();
 
   useEffect(() => {
     setOpenMenu(false);
   }, [closeMenu]);
+
+  useEffect(() => {
+    if (focused) {
+      inputRef.current.focus();
+    }
+  }, [focused]);
 
   return (
     <div className={cx("wrapper")}>
@@ -48,6 +55,7 @@ function SidebarHeader({ closeMenu }) {
           <BiSearch />
         </div>
         <input
+          ref={inputRef}
           className={cx("input")}
           placeholder="Search"
           onFocus={() => setIsFocus(true)}
