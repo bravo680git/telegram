@@ -1,7 +1,11 @@
-import Test from "./Test";
+import { useSelector } from "react-redux";
+
+import Layout from "./components/Layouts";
 
 function App() {
-  return <Test />;
+  const { sidebar, content } = useSelector((state) => state.control);
+
+  return <Layout sidebar={sidebar} content={content} />;
 }
 
 export default App;

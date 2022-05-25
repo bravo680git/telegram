@@ -1,7 +1,10 @@
+import { useDispatch } from "react-redux";
 import classNames from "classnames/bind";
 import { useState, useEffect, useRef } from "react";
 import { AiOutlineArrowLeft, AiOutlineMenu } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
+
+import { setSidebarControl } from "../../../store/slices/controlSlices";
 import menuItems from "../../../utils/mainMenuItemsList";
 import Menu from "../../Menu";
 import style from "./SidebarHeader.module.scss";
@@ -9,9 +12,16 @@ import style from "./SidebarHeader.module.scss";
 const cx = classNames.bind(style);
 
 function SidebarHeader({ closeMenu, focused }) {
+  const ditpatch = useDispatch();
+
   const [isFocus, setIsFocus] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const inputRef = useRef();
+
+  const handleBack = () => {
+    setIsFocus(false);
+    ditpatch(setSidebarControl("main"));
+  };
 
   useEffect(() => {
     setOpenMenu(false);
@@ -32,10 +42,7 @@ function SidebarHeader({ closeMenu, focused }) {
         })}
       >
         {isFocus ? (
-          <AiOutlineArrowLeft
-            className={cx("back")}
-            onClick={() => setIsFocus(false)}
-          />
+          <AiOutlineArrowLeft className={cx("back")} onClick={handleBack} />
         ) : (
           <AiOutlineMenu
             className={cx("menu-icon")}

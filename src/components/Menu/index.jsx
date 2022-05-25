@@ -12,7 +12,8 @@ function Menu({ menuItems = [], footer }) {
           key={index}
           text={item.text}
           icon={<item.icon />}
-          onClick={item.onClick}
+          control={item.control}
+          href={item.href}
         />
       ))}
 
