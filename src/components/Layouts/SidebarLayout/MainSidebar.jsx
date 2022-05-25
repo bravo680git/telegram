@@ -14,7 +14,6 @@ const cx = classNames.bind(style);
 function MainSidebar() {
   const [isActived, setIsActived] = useState(false);
   const [closeMenu, setCloseMenu] = useState(0);
-  const [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {
     setIsActived(false);
@@ -32,13 +31,7 @@ function MainSidebar() {
         <div className={cx("seperate")}></div>
         <ContactList />
       </div>
-      <div
-        className={cx("icon", {
-          actived: isActived,
-          unActived: !isActived,
-          firstRender: firstRender,
-        })}
-      >
+      <div className={cx("icon")}>
         {isActived ? (
           <AiOutlineClose onClick={() => setIsActived(false)} />
         ) : (
@@ -46,14 +39,18 @@ function MainSidebar() {
             onClick={(e) => {
               e.stopPropagation();
               setIsActived(true);
-              setFirstRender(false);
             }}
           />
         )}
 
-        <div className={cx("menu")} onClick={(e) => e.stopPropagation()}>
-          <Menu menuItems={newMessageMenu} />
-        </div>
+        <Menu
+          menuItems={newMessageMenu}
+          actived={isActived}
+          width={200}
+          x={-180}
+          y={-142}
+          transformOrigin="bottom right"
+        />
       </div>
     </div>
   );

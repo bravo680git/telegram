@@ -39,51 +39,6 @@
   .menu-icon {
     animation: spinRight 0.3s;
   }
-
-  .menu {
-    width: 300px;
-    position: absolute;
-    top: 40px;
-    left: 4px;
-  }
-}
-
-//menu is actived
-.active {
-  z-index: 1;
-
-  .menu {
-    visibility: visible;
-    transform-origin: top left;
-    animation: var(--menu-open) 0.1s;
-  }
-
-  &::before {
-    position: absolute;
-    content: "";
-    width: 36px;
-    height: 36px;
-    background-color: var(--sub-bg);
-    border-radius: 50%;
-    z-index: -1;
-  }
-
-  &::after {
-    content: "";
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    position: absolute;
-    animation: var(--btn-active);
-  }
-}
-
-//menu is un actived
-.unActive {
-  .menu {
-    transform-origin: top left;
-    animation: var(--menu-close) 0.2s forwards;
-  }
 }
 
 @keyframes spinLeft {
@@ -136,11 +91,5 @@
     .icon {
       color: var(--primary-color);
     }
-  }
-}
-
-.firstRender {
-  .menu {
-    visibility: hidden;
   }
 }

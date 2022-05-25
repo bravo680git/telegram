@@ -1,9 +1,9 @@
 .wrapper {
-  width: 100%;
   background-color: var(--main-bg);
   border-radius: 8px;
   box-shadow: var(--menu-box-shadow);
   padding-top: 8px;
+  position: absolute;
 }
 
 .pBottom {
@@ -47,4 +47,17 @@
     cursor: pointer;
     background-color: var(--main-hover);
   }
+}
+
+.actived {
+  visibility: visible;
+  animation: var(--menu-open) 0.1s;
+}
+
+.unActived {
+  animation: var(--menu-close) 0.2s forwards;
+}
+
+.firstRender {
+  visibility: hidden;
 }

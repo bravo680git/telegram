@@ -16,13 +16,11 @@ function SidebarHeader({ closeMenu, focused }) {
 
   const [isFocus, setIsFocus] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-  const [firstRender, setFirstRender] = useState(true);
   const inputRef = useRef();
 
   const handleBack = () => {
     setIsFocus(false);
     ditpatch(setSidebarControl("main"));
-    setFirstRender(true);
   };
 
   useEffect(() => {
@@ -37,13 +35,7 @@ function SidebarHeader({ closeMenu, focused }) {
 
   return (
     <div className={cx("wrapper")}>
-      <div
-        className={cx("menu-control", {
-          active: openMenu,
-          unActive: !openMenu,
-          firstRender: firstRender,
-        })}
-      >
+      <div className={cx("menu-control")}>
         {isFocus ? (
           <AiOutlineArrowLeft className={cx("back")} onClick={handleBack} />
         ) : (
@@ -52,14 +44,19 @@ function SidebarHeader({ closeMenu, focused }) {
             onClick={(e) => {
               e.stopPropagation();
               setOpenMenu(!openMenu);
-              setFirstRender(false);
             }}
           />
         )}
 
-        <div className={cx("menu")} onClick={(e) => e.stopPropagation()}>
-          <Menu menuItems={menuItems} footer="Telegram WebK 1.4.3(175)" />
-        </div>
+        <Menu
+          actived={openMenu}
+          menuItems={menuItems}
+          footer="Telegram WebK 1.4.3(175)"
+          width={300}
+          x={40}
+          y={4}
+          transformOrigin="top left"
+        />
       </div>
       <div className={cx("search")}>
         <div className={cx("icon")}>
