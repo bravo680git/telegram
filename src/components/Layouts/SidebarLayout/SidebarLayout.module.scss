@@ -95,6 +95,12 @@
       font-size: 1.8rem;
     }
   }
+
+  .firstRender {
+    .menu {
+      visibility: hidden;
+    }
+  }
 }
 
 //contacts sidebar

@@ -16,11 +16,13 @@ function SidebarHeader({ closeMenu, focused }) {
 
   const [isFocus, setIsFocus] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [firstRender, setFirstRender] = useState(true);
   const inputRef = useRef();
 
   const handleBack = () => {
     setIsFocus(false);
     ditpatch(setSidebarControl("main"));
+    setFirstRender(true);
   };
 
   useEffect(() => {
@@ -39,6 +41,7 @@ function SidebarHeader({ closeMenu, focused }) {
         className={cx("menu-control", {
           active: openMenu,
           unActive: !openMenu,
+          firstRender: firstRender,
         })}
       >
         {isFocus ? (
@@ -49,6 +52,7 @@ function SidebarHeader({ closeMenu, focused }) {
             onClick={(e) => {
               e.stopPropagation();
               setOpenMenu(!openMenu);
+              setFirstRender(false);
             }}
           />
         )}

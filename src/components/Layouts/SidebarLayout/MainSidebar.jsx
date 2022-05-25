@@ -14,6 +14,7 @@ const cx = classNames.bind(style);
 function MainSidebar() {
   const [isActived, setIsActived] = useState(false);
   const [closeMenu, setCloseMenu] = useState(0);
+  const [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {
     setIsActived(false);
@@ -35,6 +36,7 @@ function MainSidebar() {
         className={cx("icon", {
           actived: isActived,
           unActived: !isActived,
+          firstRender: firstRender,
         })}
       >
         {isActived ? (
@@ -44,6 +46,7 @@ function MainSidebar() {
             onClick={(e) => {
               e.stopPropagation();
               setIsActived(true);
+              setFirstRender(false);
             }}
           />
         )}
