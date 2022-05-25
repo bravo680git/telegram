@@ -7,16 +7,19 @@ const cx = classNames.bind(style);
 function ChatList() {
   const chatList = [
     {
+      id: 1,
       name: "Hao",
       status: "Hao joined telegram",
       date: "May 4",
     },
     {
+      id: 2,
       name: "Nhien",
       status: "Hao joined telegram",
       date: "May 10",
     },
     {
+      id: 3,
       name: "Binh",
       status: "Hao joined telegram",
       date: "May 19",
@@ -27,7 +30,7 @@ function ChatList() {
     <div className={cx("wrapper")}>
       {chatList.map((item, index) => (
         <div key={index} className={cx("item-container")}>
-          <ChatItem data={item} large hover actived={index === 1} />
+          <ChatItem data={item} large hover actived={index === 0} canActived />
         </div>
       ))}
     </div>

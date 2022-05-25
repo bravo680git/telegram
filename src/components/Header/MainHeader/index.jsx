@@ -6,8 +6,7 @@ import style from "./MainHeader.module.scss";
 
 const cx = classNames.bind(style);
 
-function MainHeader() {
-  const data = { name: "Hao", status: "Last seen 58 minutes ago" };
+function MainHeader({ data }) {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
