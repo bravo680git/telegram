@@ -23,6 +23,13 @@ function SidebarHeader({ closeMenu, focused }) {
     ditpatch(setSidebarControl("main"));
   };
 
+  const handleFocus = () => {
+    setIsFocus(true);
+    if (!focused) {
+      ditpatch(setSidebarControl("search"));
+    }
+  };
+
   useEffect(() => {
     setOpenMenu(false);
   }, [closeMenu]);
@@ -66,7 +73,7 @@ function SidebarHeader({ closeMenu, focused }) {
           ref={inputRef}
           className={cx("input")}
           placeholder="Search"
-          onFocus={() => setIsFocus(true)}
+          onFocus={handleFocus}
         />
       </div>
     </div>

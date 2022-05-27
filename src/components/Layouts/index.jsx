@@ -20,6 +20,10 @@ function Layout({ sidebar, content }) {
       SidebarLayout = Sidebars.ContactSidebar;
       break;
 
+    case "search":
+      SidebarLayout = Sidebars.SearchSidebar;
+      break;
+
     default:
       console.log("Invalid component");
       break;
