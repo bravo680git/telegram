@@ -4,7 +4,7 @@ import style from "./ContactList.module.scss";
 
 const cx = classNames.bind(style);
 
-function ContactList({ fullSize }) {
+function ContactList({ fullSize, onClick }) {
   const contacts = [
     {
       id: 5,
@@ -49,7 +49,7 @@ function ContactList({ fullSize }) {
   ];
 
   return (
-    <div className={cx("wrraper")}>
+    <div className={cx("wrraper")} onClick={onClick}>
       {!fullSize ? <div className={cx("title")}>Contacts</div> : null}
       {contacts.map((item, index) => (
         <div key={index}>

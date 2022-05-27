@@ -8,7 +8,7 @@
     height: calc(100vh - 58px);
 
     &:hover {
-      overflow-y: scroll;
+      overflow-y: overlay;
     }
   }
 
@@ -16,17 +16,12 @@
     height: 12px;
     margin: 8px 0 16px -10px;
     width: calc(100% + 20px);
-
     background-color: var(--sub-bg);
-    position: relative;
 
-    &::after {
-      content: " ";
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
+    div {
+      height: 100%;
+      width: 100%;
+
       background: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.06) 0%,
@@ -67,16 +62,13 @@
 .contact-sidebar {
   position: relative;
 
-  .scroll {
+  .body {
+    padding: 0 4px 0 8px;
     height: calc(100vh - 58px);
     overflow: hidden;
 
-    .body {
-      padding: 0 4px 0 8px;
-    }
-
     &:hover {
-      overflow-y: scroll;
+      overflow-y: overlay;
     }
   }
 

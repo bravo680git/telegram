@@ -28,7 +28,9 @@ function MainSidebar() {
       <SidebarHeader closeMenu={closeMenu} />
       <div className={cx("body")}>
         <ChatList />
-        <div className={cx("seperate")}></div>
+        <div className={cx("seperate")}>
+          <div></div>
+        </div>
         <ContactList />
       </div>
       <div className={cx("icon")}>
