@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import Layout from "./components/Layouts";
+import Layout from "./layouts";
 
 function App() {
   const { sidebar, content } = useSelector((state) => state.control);

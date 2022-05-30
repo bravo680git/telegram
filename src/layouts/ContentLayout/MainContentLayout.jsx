@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import classNames from "classnames/bind";
-import { MainHeader } from "../../Header";
+import { MainHeader } from "../../components/Header";
 import style from "./ContentLayout.module.scss";
 
 const cx = classNames.bind(style);

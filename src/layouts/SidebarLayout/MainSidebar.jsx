@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
-import ChatList from "../../ChatList";
-import ContactList from "../../ContactList";
-import { SidebarHeader } from "../../Header";
-import Menu from "../../Menu";
-import newMessageMenu from "../../../utils/newMessageMenu";
+import ChatList from "../../components/ChatList";
+import ContactList from "../../components/ContactList";
+import { SidebarHeader } from "../../components/Header";
+import Menu from "../../components/Menu";
+import newMessageMenu from "../../utils/newMessageMenu";
 import style from "./SidebarLayout.module.scss";
 
 const cx = classNames.bind(style);

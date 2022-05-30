@@ -4,9 +4,9 @@ import classNames from "classnames/bind";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useSpring, animated } from "@react-spring/web";
 
-import { setSidebarControl } from "../../../store/slices/controlSlices";
-import { SidebarHeader } from "../../Header";
-import ContactList from "../../ContactList";
+import { setSidebarControl } from "../../store/slices/controlSlices";
+import { SidebarHeader } from "../../components/Header";
+import ContactList from "../../components/ContactList";
 import style from "./SidebarLayout.module.scss";
 
 const cx = classNames.bind(style);
