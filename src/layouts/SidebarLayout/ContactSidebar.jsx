@@ -7,6 +7,7 @@ import { useSpring, animated } from "@react-spring/web";
 import { setSidebarControl } from "../../store/slices/controlSlices";
 import { SidebarHeader } from "../../components/Header";
 import ContactList from "../../components/ContactList";
+import Button from "../../components/Button";
 import style from "./SidebarLayout.module.scss";
 
 const cx = classNames.bind(style);
@@ -34,7 +35,7 @@ function ContactSidebar() {
           className={cx("add-icon", { actived: isActived })}
           onClick={() => setIsActived(true)}
         >
-          <AiOutlinePlus />
+          <Button Icon={AiOutlinePlus} />
         </div>
       </div>
     </animated.div>

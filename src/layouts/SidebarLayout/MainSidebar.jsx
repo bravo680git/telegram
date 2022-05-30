@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
+
 import ChatList from "../../components/ChatList";
 import ContactList from "../../components/ContactList";
 import { SidebarHeader } from "../../components/Header";
 import Menu from "../../components/Menu";
+import Button from "../../components/Button";
 import newMessageMenu from "../../utils/newMessageMenu";
 import style from "./SidebarLayout.module.scss";
 
@@ -37,7 +39,8 @@ function MainSidebar() {
         {isActived ? (
           <AiOutlineClose onClick={() => setIsActived(false)} />
         ) : (
-          <HiPencil
+          <Button
+            Icon={HiPencil}
             onClick={(e) => {
               e.stopPropagation();
               setIsActived(true);

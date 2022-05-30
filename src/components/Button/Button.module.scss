@@ -1,0 +1,37 @@
+.wrapper {
+  position: relative;
+  transition: background-color 0.3s;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    top: var(--mouse-y);
+    left: var(--mouse-x);
+    transform-style: flat;
+    transform: translate3d(-50%, -50%, 0);
+    background: var(--sub-hover);
+    border-radius: 50%;
+    transition: width 0.3s, height 0.3s;
+  }
+  &:focus,
+  &:hover {
+    background: var(--main-hover);
+  }
+  &:active {
+    &:after {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}

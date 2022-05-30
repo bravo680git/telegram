@@ -5,6 +5,7 @@ import { AiOutlineArrowLeft, AiOutlineMenu } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 
 import { setSidebarControl } from "../../../store/slices/controlSlices";
+import Button from "../../Button";
 import menuItems from "../../../utils/mainMenuItemsList";
 import Menu from "../../Menu";
 import style from "./SidebarHeader.module.scss";
@@ -46,7 +47,10 @@ function SidebarHeader({ closeMenu, focused }) {
         {isFocus ? (
           <AiOutlineArrowLeft className={cx("back")} onClick={handleBack} />
         ) : (
-          <AiOutlineMenu
+          <Button
+            width={40}
+            height={40}
+            Icon={AiOutlineMenu}
             className={cx("menu-icon")}
             onClick={(e) => {
               e.stopPropagation();
