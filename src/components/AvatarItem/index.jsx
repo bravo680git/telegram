@@ -23,7 +23,10 @@ function AvatarItem({ name, src }) {
             background: colors[name.length % 3],
           }}
         >
-          {name.slice(0, 1)}
+          {name
+            .split(" ")
+            .map((item) => item.slice(0, 1))
+            .join("")}
         </div>
       )}
     </div>

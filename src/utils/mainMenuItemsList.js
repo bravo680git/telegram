@@ -17,6 +17,7 @@ const menuItems = [
   {
     text: "Settings",
     icon: VscGear,
+    control: "sidebar-settings",
   },
   {
     text: "Dark Mode",

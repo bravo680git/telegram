@@ -8,7 +8,7 @@ import style from "./Menu.module.scss";
 
 const cx = classNames.bind(style);
 
-function MenuItem({ icon, text, control, href }) {
+function MenuItem({ Icon, text, control, href, large }) {
   const dispatch = useDispatch();
   const handleChangeControl = () => {
     switch (control.split("-")[0]) {
@@ -28,23 +28,23 @@ function MenuItem({ icon, text, control, href }) {
 
   if (href)
     return (
-      <a href={href} className={cx("menu-item")}>
-        <div className={cx("icon")}>{icon}</div>
+      <a href={href} className={cx("menu-item", { large })}>
+        <div className={cx("icon")}>{<Icon />}</div>
         <div className={cx("text")}>{text}</div>
       </a>
     );
 
   if (control)
     return (
-      <div className={cx("menu-item")} onClick={handleChangeControl}>
-        <div className={cx("icon")}>{icon}</div>
+      <div className={cx("menu-item", { large })} onClick={handleChangeControl}>
+        <div className={cx("icon")}>{<Icon />}</div>
         <div className={cx("text")}>{text}</div>
       </div>
     );
 
   return (
-    <div className={cx("menu-item")}>
-      <div className={cx("icon")}>{icon}</div>
+    <div className={cx("menu-item", { large })}>
+      <div className={cx("icon")}>{<Icon />}</div>
       <div className={cx("text")}>{text}</div>
     </div>
   );

@@ -34,7 +34,7 @@ function Menu({
         <MenuItem
           key={index}
           text={item.text}
-          icon={<item.icon />}
+          Icon={item.icon}
           control={item.control}
           href={item.href}
         />

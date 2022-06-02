@@ -24,6 +24,10 @@ function Layout({ sidebar, content }) {
       SidebarLayout = Sidebars.SearchSidebar;
       break;
 
+    case "settings":
+      SidebarLayout = Sidebars.SettingSidebar;
+      break;
+
     default:
       console.log("Invalid component");
       break;
