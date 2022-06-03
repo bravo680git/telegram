@@ -45,7 +45,14 @@ function SettingSidebar() {
         </div>
 
         <div className={cx("phone")}>
-          <MenuItem large Icon={AiOutlinePhone} text="+84 946694231" />
+          <MenuItem
+            rightText="Phone"
+            bottomText="Phone"
+            large
+            round
+            Icon={AiOutlinePhone}
+            text="+84 946694231"
+          />
         </div>
       </div>
 
@@ -53,9 +60,9 @@ function SettingSidebar() {
         <div></div>
       </div>
 
-      <div className="setting-menu">
+      <div className={cx("setting-menu")}>
         {settingItems.map((item, index) => (
-          <MenuItem large key={index} Icon={item.icon} text={item.text} />
+          <MenuItem large round key={index} Icon={item.icon} text={item.text} />
         ))}
       </div>
     </div>

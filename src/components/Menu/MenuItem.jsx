@@ -8,7 +8,17 @@ import style from "./Menu.module.scss";
 
 const cx = classNames.bind(style);
 
-function MenuItem({ Icon, text, control, href, large }) {
+function MenuItem({
+  Icon,
+  text,
+  control,
+  href,
+  large,
+  onClick,
+  bottomText,
+  rightText,
+  round,
+}) {
   const dispatch = useDispatch();
   const handleChangeControl = () => {
     switch (control.split("-")[0]) {
@@ -28,24 +38,39 @@ function MenuItem({ Icon, text, control, href, large }) {
 
   if (href)
     return (
-      <a href={href} className={cx("menu-item", { large })}>
+      <a href={href} className={cx("menu-item", { large, round })}>
         <div className={cx("icon")}>{<Icon />}</div>
-        <div className={cx("text")}>{text}</div>
+        <div>
+          <div className={cx("text")}>{text}</div>
+          <div className="bottom-text">{bottomText}</div>
+        </div>
+        <div className="rightText">{rightText}</div>
       </a>
     );
 
   if (control)
     return (
-      <div className={cx("menu-item", { large })} onClick={handleChangeControl}>
+      <div
+        className={cx("menu-item", { large, round })}
+        onClick={handleChangeControl}
+      >
         <div className={cx("icon")}>{<Icon />}</div>
-        <div className={cx("text")}>{text}</div>
+        <div>
+          <div className={cx("text")}>{text}</div>
+          <div className="bottom-text">{bottomText}</div>
+        </div>
+        <div className="rightText">{rightText}</div>
       </div>
     );
 
   return (
-    <div className={cx("menu-item", { large })}>
+    <div className={cx("menu-item", { large, round })} onClick={onClick}>
       <div className={cx("icon")}>{<Icon />}</div>
-      <div className={cx("text")}>{text}</div>
+      <div className={cx({ center: !bottomText })}>
+        <div className={cx("text")}>{text}</div>
+        {bottomText && <div className={cx("bottom-text")}>{bottomText}</div>}
+      </div>
+      <div className={cx("right-text")}>{rightText}</div>
     </div>
   );
 }

@@ -21,24 +21,22 @@ function ContactSidebar() {
   });
 
   return (
-    <animated.div style={props}>
-      <div className={cx("contact-sidebar")}>
-        <SidebarHeader focused />
-        <div className={cx("body")}>
-          <ContactList
-            fullSize
-            onClick={() => dispatch(setSidebarControl("main"))}
-          />
-        </div>
-
-        <div
-          className={cx("add-icon", { actived: isActived })}
-          onClick={() => setIsActived(true)}
-        >
-          <Button Icon={AiOutlinePlus} />
-        </div>
+    <div className={cx("contact-sidebar")}>
+      <SidebarHeader focused />
+      <div className={cx("body")}>
+        <ContactList
+          fullSize
+          onClick={() => dispatch(setSidebarControl("main"))}
+        />
       </div>
-    </animated.div>
+
+      <div
+        className={cx("add-icon", { actived: isActived })}
+        onClick={() => setIsActived(true)}
+      >
+        <Button Icon={AiOutlinePlus} />
+      </div>
+    </div>
   );
 }
 

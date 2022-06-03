@@ -172,8 +172,7 @@
 
   .seperate {
     height: 12px;
-    margin: 0 0 16px -10px;
-    width: calc(100% + 20px);
+    width: 100%;
     background-color: var(--sub-bg);
 
     div {
@@ -188,5 +187,9 @@
         rgba(0, 0, 0, 0.06) 100%
       );
     }
+  }
+
+  .setting-menu {
+    padding-top: 8px;
   }
 }
