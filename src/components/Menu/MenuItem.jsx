@@ -21,9 +21,11 @@ function MenuItem({
   rightText,
   round,
   animationTime = 400,
+  checkbox,
 }) {
   const dispatch = useDispatch();
   const [actived, setActived] = useState(false);
+  const [checked, setChecked] = useState(false);
   const ref = useRef();
 
   const handleChangeControl = () => {
@@ -47,6 +49,7 @@ function MenuItem({
     if (href) return window.open(href);
     if (control) return handleChangeControl();
     if (onClick) onClick();
+    setChecked((state) => !state);
   };
 
   useEffect(() => {
@@ -75,7 +78,16 @@ function MenuItem({
       onClick={handleCLick}
       ref={ref}
     >
-      <div className={cx("icon")}>{<Icon />}</div>
+      {checkbox ? (
+        <input
+          type="checkbox"
+          className={cx("checkbox")}
+          checked={checked}
+          readOnly
+        />
+      ) : (
+        <div className={cx("icon")}>{<Icon />}</div>
+      )}
       <div className={cx({ center: !bottomText })}>
         <div className={cx("text")}>{text}</div>
         {bottomText && <div className="bottom-text">{bottomText}</div>}
