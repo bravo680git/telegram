@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames/bind";
 import { AiOutlineArrowLeft, AiOutlinePhone } from "react-icons/ai";
@@ -16,6 +17,8 @@ const cx = classNames.bind(style);
 function SettingSidebar() {
   const dispatch = useDispatch();
   const sidebarControl = useSelector((state) => state.control.sidebar);
+  const [menuItems, setMenuItems] = useState([settingItems]);
+
   const handleBack = () => {
     if (sidebarControl === "settings") {
       dispatch(setSidebarControl("main"));
@@ -46,7 +49,6 @@ function SettingSidebar() {
 
         <div className={cx("phone")}>
           <MenuItem
-            rightText="Phone"
             bottomText="Phone"
             large
             round
@@ -61,7 +63,7 @@ function SettingSidebar() {
       </div>
 
       <div className={cx("setting-menu")}>
-        {settingItems.map((item, index) => (
+        {menuItems[menuItems.length - 1].map((item, index) => (
           <MenuItem large round key={index} Icon={item.icon} text={item.text} />
         ))}
       </div>

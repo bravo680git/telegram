@@ -19,7 +19,9 @@ function ChatItem({ data, large, hover, canActived }) {
         actived: canActived && id === data.id,
       })}
       onClick={() =>
-        dispatch(setCurrentChat({ name: data.name, status: data.status }))
+        dispatch(
+          setCurrentChat({ name: data.name, status: data.status, id: data.id })
+        )
       }
     >
       <div className={cx("container")}>

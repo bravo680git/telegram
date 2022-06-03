@@ -49,7 +49,7 @@ function ContactList({ fullSize, onClick }) {
   ];
 
   return (
-    <div className={cx("wrraper")} onClick={onClick}>
+    <div className={cx("wrapper")} onClick={onClick}>
       {!fullSize ? <div className={cx("title")}>Contacts</div> : null}
       {contacts.map((item, index) => (
         <div key={index}>

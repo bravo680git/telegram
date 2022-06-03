@@ -1,5 +1,7 @@
+import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import classNames from "classnames/bind";
+
 import {
   setSidebarControl,
   setContentControl,
@@ -18,8 +20,12 @@ function MenuItem({
   bottomText,
   rightText,
   round,
+  animationTime = 400,
 }) {
   const dispatch = useDispatch();
+  const [actived, setActived] = useState(false);
+  const ref = useRef();
+
   const handleChangeControl = () => {
     switch (control.split("-")[0]) {
       case "sidebar":
@@ -36,41 +42,45 @@ function MenuItem({
     }
   };
 
-  if (href)
-    return (
-      <a href={href} className={cx("menu-item", { large, round })}>
-        <div className={cx("icon")}>{<Icon />}</div>
-        <div>
-          <div className={cx("text")}>{text}</div>
-          <div className="bottom-text">{bottomText}</div>
-        </div>
-        <div className="rightText">{rightText}</div>
-      </a>
-    );
+  const handleCLick = () => {
+    setActived(true);
+    if (href) return window.open(href);
+    if (control) return handleChangeControl();
+    if (onClick) onClick();
+  };
 
-  if (control)
-    return (
-      <div
-        className={cx("menu-item", { large, round })}
-        onClick={handleChangeControl}
-      >
-        <div className={cx("icon")}>{<Icon />}</div>
-        <div>
-          <div className={cx("text")}>{text}</div>
-          <div className="bottom-text">{bottomText}</div>
-        </div>
-        <div className="rightText">{rightText}</div>
-      </div>
-    );
+  useEffect(() => {
+    let tId;
+    if (actived) {
+      tId = setTimeout(() => setActived(false), animationTime);
+    }
+
+    return () => clearTimeout(tId);
+  }, [actived, animationTime]);
+
+  useEffect(() => {
+    const button = ref.current;
+    button.addEventListener("mousemove", (e) => {
+      const x = e.offsetX;
+      const y = e.offsetY;
+      button.style.setProperty("--mouse-x", x + "px");
+      button.style.setProperty("--mouse-y", y + "px");
+      button.style.setProperty("--animation-time", animationTime * 2 + "ms");
+    });
+  }, [animationTime]);
 
   return (
-    <div className={cx("menu-item", { large, round })} onClick={onClick}>
+    <div
+      className={cx("menu-item", { large, round, actived })}
+      onClick={handleCLick}
+      ref={ref}
+    >
       <div className={cx("icon")}>{<Icon />}</div>
       <div className={cx({ center: !bottomText })}>
         <div className={cx("text")}>{text}</div>
-        {bottomText && <div className={cx("bottom-text")}>{bottomText}</div>}
+        {bottomText && <div className="bottom-text">{bottomText}</div>}
       </div>
-      <div className={cx("right-text")}>{rightText}</div>
+      <div className="rightText">{rightText}</div>
     </div>
   );
 }
