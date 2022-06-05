@@ -9,6 +9,7 @@ import Button from "../../Button";
 import menuItems from "../../../utils/mainMenuItemsList";
 import Menu from "../../Menu";
 import style from "./SidebarHeader.module.scss";
+import { slideAnimationDuration } from "../../../utils/constansts";
 
 const cx = classNames.bind(style);
 
@@ -36,9 +37,12 @@ function SidebarHeader({ closeMenu, focused }) {
   }, [closeMenu]);
 
   useEffect(() => {
+    let tId;
     if (focused) {
-      inputRef.current.focus();
+      tId = setTimeout(() => inputRef.current.focus(), slideAnimationDuration);
     }
+
+    return () => clearTimeout(tId);
   }, [focused]);
 
   return (

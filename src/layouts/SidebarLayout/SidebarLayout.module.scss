@@ -1,6 +1,7 @@
 //main sidebar
 .main-sidebar {
   position: relative;
+  height: 100%;
 
   .body {
     overflow: hidden;
@@ -60,7 +61,8 @@
 
 //contacts sidebar
 .contact-sidebar {
-  position: relative;
+  background-color: var(--main-bg);
+  height: 100%;
 
   .body {
     padding: 0 4px 0 8px;

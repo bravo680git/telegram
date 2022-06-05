@@ -2,54 +2,26 @@ import classNames from "classnames/bind";
 import SideBar from "./Sidebar";
 import Content from "./Content";
 import style from "./Layout.module.scss";
+import { useSelector } from "react-redux";
 
 import * as Sidebars from "./SidebarLayout";
 import * as Contents from "./ContentLayout";
 
 const cx = classNames.bind(style);
 
-function Layout({ sidebar, content }) {
-  let SidebarLayout, ContentLayout;
-
-  switch (sidebar) {
-    case "main":
-      SidebarLayout = Sidebars.MainSidebar;
-      break;
-
-    case "contact":
-      SidebarLayout = Sidebars.ContactSidebar;
-      break;
-
-    case "search":
-      SidebarLayout = Sidebars.SearchSidebar;
-      break;
-
-    case "settings":
-      SidebarLayout = Sidebars.SettingSidebar;
-      break;
-
-    default:
-      console.log("Invalid component");
-      break;
-  }
-
-  switch (content) {
-    case "main":
-      ContentLayout = Contents.MainContent;
-      break;
-
-    default:
-      console.log("Invalid component");
-      break;
-  }
+function Layout() {
+  const { sidebar, content } = useSelector((state) => state.control);
 
   return (
     <div className={cx("wrapper")}>
       <SideBar>
-        <SidebarLayout />
+        <Sidebars.SettingSidebar actived={sidebar === "settings"} />
+        <Sidebars.ContactSidebar actived={sidebar === "contact"} />
+        <Sidebars.SearchSidebar actived={sidebar === "search"} />
+        <Sidebars.MainSidebar actived={sidebar === "main"} />
       </SideBar>
       <Content>
-        <ContentLayout />
+        <Contents.MainContent actived={content === "main"} />
       </Content>
     </div>
   );

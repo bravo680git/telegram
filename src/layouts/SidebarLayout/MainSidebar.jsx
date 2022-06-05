@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import classNames from "classnames/bind";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
@@ -10,10 +11,12 @@ import Menu from "../../components/Menu";
 import Button from "../../components/Button";
 import newMessageMenu from "../../utils/newMessageMenu";
 import style from "./SidebarLayout.module.scss";
+import Transition from "../../components/Transition";
 
 const cx = classNames.bind(style);
 
-function MainSidebar() {
+function MainSidebar({ actived }) {
+  const firstRender = useSelector((state) => state.control.sidebar === "start");
   const [isActived, setIsActived] = useState(false);
   const [closeMenu, setCloseMenu] = useState(0);
 
@@ -21,7 +24,7 @@ function MainSidebar() {
     setIsActived(false);
   }, [closeMenu]);
 
-  return (
+  return firstRender ? (
     <div
       className={cx("main-sidebar")}
       onMouseLeave={() => setCloseMenu((prev) => prev + 1)}
@@ -47,7 +50,6 @@ function MainSidebar() {
             }}
           />
         )}
-
         <Menu
           menuItems={newMessageMenu}
           actived={isActived}
@@ -58,6 +60,44 @@ function MainSidebar() {
         />
       </div>
     </div>
+  ) : (
+    <Transition actived={actived} leftToRight>
+      <div
+        className={cx("main-sidebar")}
+        onMouseLeave={() => setCloseMenu((prev) => prev + 1)}
+        onClick={() => setCloseMenu((prev) => prev + 1)}
+      >
+        <SidebarHeader closeMenu={closeMenu} />
+        <div className={cx("body")}>
+          <ChatList />
+          <div className={cx("seperate")}>
+            <div></div>
+          </div>
+          <ContactList />
+        </div>
+        <div className={cx("icon")}>
+          {isActived ? (
+            <AiOutlineClose onClick={() => setIsActived(false)} />
+          ) : (
+            <Button
+              Icon={HiPencil}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsActived(true);
+              }}
+            />
+          )}
+          <Menu
+            menuItems={newMessageMenu}
+            actived={isActived}
+            width={200}
+            x={-180}
+            y={-142}
+            transformOrigin="bottom right"
+          />
+        </div>
+      </div>
+    </Transition>
   );
 }
 
