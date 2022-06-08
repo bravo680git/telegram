@@ -1,8 +1,9 @@
-import { FiDatabase } from "react-icons/fi";
+import { FiDatabase, FiUserX } from "react-icons/fi";
 import { BiLockAlt, BiDevices } from "react-icons/bi";
 import { VscGear } from "react-icons/vsc";
-import { AiOutlineFolder } from "react-icons/ai";
+import { AiOutlineFolder, AiOutlineLock } from "react-icons/ai";
 import { MdOutlineLanguage, MdNotificationsNone } from "react-icons/md";
+import { RiDeleteBin7Line } from "react-icons/ri";
 
 const settingItems = [
   {
@@ -42,10 +43,97 @@ const settingItems = [
   {
     text: "Data and Storage",
     icon: FiDatabase,
+    sub: [
+      {
+        title: "Automatic media download",
+        sub: [
+          {
+            text: "Auto-downlaod Media",
+            checkbox: true,
+          },
+          {
+            text: "Photos",
+          },
+          {
+            text: "Videos",
+          },
+          {
+            text: "Files",
+          },
+          {
+            text: "Reset Auto-Download Settings",
+            icon: RiDeleteBin7Line,
+          },
+        ],
+      },
+      {
+        title: "Auto-play media",
+        sub: [
+          {
+            text: "GIFs",
+            checkbox: true,
+          },
+          {
+            text: "Videos",
+            checkbox: true,
+          },
+        ],
+      },
+    ],
   },
   {
     text: "Private and Secrurity",
     icon: BiLockAlt,
+    sub: [
+      {
+        sub: [
+          { text: "Blocked Users", icon: FiUserX },
+          { text: "Two-Step Verification", icon: AiOutlineLock },
+          { text: "Active Sessions", icon: BiDevices },
+        ],
+      },
+      {
+        title: "Privacy",
+        sub: [
+          {
+            text: "Who can see my phone number?",
+          },
+          {
+            text: "Who can see your Last Seen time?",
+          },
+          {
+            text: "Who can see my profile photos & video?",
+          },
+          {
+            text: "Who can call me?",
+          },
+          {
+            text: "Who can add a link to my account when forwarding my message?",
+          },
+          {
+            text: "Who can add me to group chats?",
+          },
+        ],
+      },
+      {
+        title: "Sensitive Content",
+        sub: [
+          {
+            text: "Disable filtering",
+            checkbox: true,
+          },
+        ],
+      },
+      {
+        title: "Chats",
+        sub: [
+          {
+            text: "Delete All Cloud Drafts",
+            icon: RiDeleteBin7Line,
+          },
+        ],
+      },
+    ],
   },
   {
     text: "General Settings",

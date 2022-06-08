@@ -2,6 +2,9 @@
   background-color: var(--main-bg);
   margin-bottom: 10px;
   border: var(--main-border);
+  border-left: none;
+  border-right: none;
+  padding-top: 8px;
   padding-bottom: 8px;
 }
 
@@ -9,5 +12,5 @@
   font-size: 1.05rem;
   color: var(--primary-color);
   font-weight: 600;
-  margin: 20px 0 8px 20px;
+  margin: 12px 0 8px 20px;
 }

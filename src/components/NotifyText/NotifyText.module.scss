@@ -1,0 +1,12 @@
+.wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  background-color: var(--toast-bg);
+  color: var(--main-bg);
+  border-radius: 8px;
+  padding: 8px 16px;
+  z-index: 999;
+}

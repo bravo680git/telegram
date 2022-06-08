@@ -7,7 +7,7 @@ const cx = classNames.bind(style);
 function MenuGroup({ title, children }) {
   return (
     <div className={cx("wrapper")}>
-      <div className={cx("title")}> {title}</div>
+      {title && <div className={cx("title")}> {title}</div>}
       {children}
     </div>
   );
