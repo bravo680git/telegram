@@ -1,1 +1,1 @@
-export const slideAnimationDuration = 500;
+export const slideAnimationDuration = 300;

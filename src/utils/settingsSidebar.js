@@ -8,6 +8,36 @@ const settingItems = [
   {
     text: "Notification and Sounds",
     icon: MdNotificationsNone,
+    sub: [
+      {
+        title: "Private Chats",
+        sub: [
+          { text: "Notification for private chats", checkbox: true },
+          { text: "Message Preview", checkbox: true },
+        ],
+      },
+      {
+        title: "Groups",
+        sub: [
+          { text: "Notification for groups", checkbox: true },
+          { text: "Message Preview", checkbox: true },
+        ],
+      },
+      {
+        title: "Channels",
+        sub: [
+          { text: "Notification for channels", checkbox: true },
+          { text: "Message Preview", checkbox: true },
+        ],
+      },
+      {
+        title: "Other",
+        sub: [
+          { text: "Contact joined Telegram", checkbox: true },
+          { text: "Notification Sound", checkbox: true },
+        ],
+      },
+    ],
   },
   {
     text: "Data and Storage",
