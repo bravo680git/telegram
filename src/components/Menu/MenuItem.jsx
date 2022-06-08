@@ -22,6 +22,7 @@ function MenuItem({
   round,
   animationTime = 400,
   checkbox,
+  title,
 }) {
   const dispatch = useDispatch();
   const [actived, setActived] = useState(false);
@@ -72,6 +73,8 @@ function MenuItem({
     });
   }, [animationTime]);
 
+  if (title) return <div>{}</div>;
+
   return (
     <div
       className={cx("menu-item", { large, round, actived })}
@@ -85,9 +88,9 @@ function MenuItem({
           checked={checked}
           readOnly
         />
-      ) : (
+      ) : Icon ? (
         <div className={cx("icon")}>{<Icon />}</div>
-      )}
+      ) : null}
       <div className={cx({ center: !bottomText })}>
         <div className={cx("text")}>{text}</div>
         {bottomText && <div className="bottom-text">{bottomText}</div>}
