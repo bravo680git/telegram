@@ -172,7 +172,6 @@ const settingItems = [
         sub: [
           {
             text: "Delete All Cloud Drafts",
-            key: "deleteAll",
             icon: RiDeleteBin7Line,
           },
         ],
@@ -192,7 +191,7 @@ const settingItems = [
   {
     text: "Devices",
     icon: BiDevices,
-    key: "devices",
+    key: "device",
   },
   {
     text: "Language",

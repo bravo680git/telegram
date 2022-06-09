@@ -51,6 +51,15 @@ const setting = {
     sensitive: {
       disableFilter: true,
     },
+    chat: {},
+  },
+  general: {},
+  folder: {},
+  device: {
+    rightText: 3,
+  },
+  language: {
+    rightText: "English",
   },
 };
 

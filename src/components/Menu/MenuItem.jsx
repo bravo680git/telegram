@@ -103,7 +103,7 @@ function MenuItem({
         <div className={cx("text")}>{text}</div>
         {subText && <div className={cx("bottom-text")}>{subText}</div>}
       </div>
-      <div className="rightText">{rightText}</div>
+      <div className={cx("right-text")}>{rightText}</div>
     </div>
   );
 }

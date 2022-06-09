@@ -114,6 +114,7 @@ function SettingSidebar({ actived }) {
                     text={item.text}
                     onClick={() => handleClick(item)}
                     value={settingFakeApi[item.key]}
+                    rightText={settingFakeApi[item.key].rightText}
                   />
                 ))}
               </div>
