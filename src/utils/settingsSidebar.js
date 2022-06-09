@@ -1,11 +1,19 @@
 import { FiDatabase, FiUserX } from "react-icons/fi";
 import { BiLockAlt, BiDevices } from "react-icons/bi";
 import { VscGear } from "react-icons/vsc";
-import { AiOutlineFolder, AiOutlineLock } from "react-icons/ai";
+import {
+  AiOutlineFolder,
+  AiOutlineLock,
+  AiOutlineMinusCircle,
+} from "react-icons/ai";
 import { MdOutlineLanguage, MdNotificationsNone } from "react-icons/md";
 import { RiDeleteBin7Line } from "react-icons/ri";
+import { BsImage } from "react-icons/bs";
 
 const settingItems = [
+  //////////////////////////////////////////////////////////////////////
+  //notification
+  //////////////////////////////////////////////////////////////////////
   {
     text: "Notification and Sounds",
     key: "notification",
@@ -57,6 +65,9 @@ const settingItems = [
       },
     ],
   },
+  //////////////////////////////////////////////////////////////////////
+  //data and storage
+  //////////////////////////////////////////////////////////////////////
   {
     text: "Data and Storage",
     key: "data",
@@ -108,6 +119,9 @@ const settingItems = [
       },
     ],
   },
+  //////////////////////////////////////////////////////////////////////
+  //private and security
+  //////////////////////////////////////////////////////////////////////
   {
     text: "Private and Secrurity",
     icon: BiLockAlt,
@@ -178,25 +192,187 @@ const settingItems = [
       },
     ],
   },
+  //////////////////////////////////////////////////////////////////////
+  //general setting
+  //////////////////////////////////////////////////////////////////////
   {
     text: "General Settings",
     icon: VscGear,
     key: "general",
+    sub: [
+      {
+        title: "Settings",
+        key: "setting",
+        sub: [
+          {
+            text: "Message Text Size",
+            range: true,
+            key: "size",
+          },
+          {
+            text: "Chat Background",
+            icon: BsImage,
+            key: "background",
+          },
+          {
+            text: "Enable Animtion",
+            checkbox: true,
+            key: "animation",
+          },
+        ],
+      },
+      {
+        title: "Keyboard",
+        key: "keyboard",
+        sub: [
+          {
+            text: "Send by Enter",
+            radio: true,
+            key: "enter",
+          },
+          {
+            text: "Send by Ctrl + Enter",
+            radio: true,
+            key: "ctrlEnter",
+          },
+        ],
+      },
+      {
+        title: "Time Format",
+        key: "time",
+        sub: [
+          {
+            text: "12-hour",
+            radio: true,
+            key: "half",
+          },
+          {
+            text: "24-hour",
+            radio: true,
+            key: "full",
+          },
+        ],
+      },
+      {
+        title: "Emoji",
+        key: "emoji",
+        sub: [
+          {
+            text: "Suggest Emoji",
+            checkbox: true,
+            key: "suggest",
+          },
+          {
+            text: "Large Emoji",
+            checkbox: true,
+            key: "large",
+          },
+        ],
+      },
+      {
+        title: "Stickers",
+        key: "sticker",
+        sub: [
+          {
+            text: "Quick Reaction",
+            key: "quick",
+          },
+          {
+            text: "Suggest Stickers by Emoji",
+            checkbox: true,
+            key: "suggest",
+          },
+          {
+            text: "Loop Animated Stickers",
+            checkbox: true,
+            key: "loop",
+          },
+          {
+            text: "Hot Cherry",
+            key: "cherry",
+          },
+        ],
+      },
+    ],
   },
+  //////////////////////////////////////////////////////////////////////
+  //chat folder
+  //////////////////////////////////////////////////////////////////////
   {
     text: "Chat Folders",
     icon: AiOutlineFolder,
     key: "folder",
   },
+  //////////////////////////////////////////////////////////////////////
+  //devices
+  //////////////////////////////////////////////////////////////////////
   {
     text: "Devices",
     icon: BiDevices,
     key: "device",
+    sub: [
+      {
+        title: "This devices",
+        key: "device",
+        sub: [
+          {
+            text: "Telegram Web 1.4.3 K",
+            key: "osNum",
+          },
+          {
+            text: "Terminal All Other Sessions",
+            icon: AiOutlineMinusCircle,
+          },
+        ],
+      },
+      {
+        title: "Active sessions",
+        key: "sessions",
+        sub: [
+          {
+            text: "Telegram Android 8.5.4",
+          },
+          {
+            text: "Telegram Android 8.5.4",
+          },
+        ],
+      },
+    ],
   },
+  //////////////////////////////////////////////////////////////////////
+  //language
+  //////////////////////////////////////////////////////////////////////
   {
     text: "Language",
     icon: MdOutlineLanguage,
     key: "language",
+    sub: [
+      {
+        key: "list",
+        sub: [
+          {
+            text: "English",
+            radio: true,
+            key: "en",
+          },
+          {
+            text: "Belarusian",
+            radio: true,
+            key: "be",
+          },
+          {
+            text: "Catalan",
+            radio: true,
+            key: "ca",
+          },
+          {
+            text: "Dutch",
+            radio: true,
+            key: "du",
+          },
+        ],
+      },
+    ],
   },
 ];
 

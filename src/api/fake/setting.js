@@ -53,13 +53,47 @@ const setting = {
     },
     chat: {},
   },
-  general: {},
+  general: {
+    setting: {
+      size: 16,
+      background: null,
+      animation: true,
+    },
+    keyboard: {
+      enter: true,
+      ctrlEnter: false,
+    },
+    time: {
+      half: true,
+      full: false,
+    },
+    emoji: {
+      suggest: true,
+      large: true,
+    },
+    sticker: {
+      quick: true,
+      suggest: true,
+      loop: true,
+      cherry: true,
+    },
+  },
   folder: {},
   device: {
     rightText: 3,
+    device: {
+      osNum: "HCM city",
+    },
+    sessions: {},
   },
   language: {
     rightText: "English",
+    list: {
+      en: true,
+      be: false,
+      ca: false,
+      du: false,
+    },
   },
 };
 

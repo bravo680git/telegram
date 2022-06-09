@@ -13,22 +13,29 @@ const cx = classNames.bind(style);
 function MenuItem({
   Icon,
   text,
-  control,
-  href,
-  large,
-  onClick,
-  bottomText,
   rightText,
-  round,
-  animationTime = 400,
-  checkbox,
   title,
   value,
+  bottomText,
+  group,
+
+  control,
+  href,
+  onClick,
+
+  range,
+  radio,
+  checkbox,
+
+  round,
+  large,
+  animationTime = 400,
 }) {
   const dispatch = useDispatch();
   const [actived, setActived] = useState(false);
   const [checked, setChecked] = useState(value);
   const [subText, setSubText] = useState(bottomText);
+  const [rangeValue, setRangeValue] = useState(12);
   const ref = useRef();
 
   const handleChangeControl = () => {
@@ -52,7 +59,8 @@ function MenuItem({
     if (href) return window.open(href);
     if (control) return handleChangeControl();
     if (onClick) onClick();
-    setChecked((state) => !state);
+    if (checkbox) setChecked((state) => !state);
+    if (radio) setChecked(true);
   };
 
   useEffect(() => {
@@ -85,8 +93,8 @@ function MenuItem({
 
   return (
     <div
-      className={cx("menu-item", { large, round, actived })}
-      onClick={handleCLick}
+      className={cx("menu-item", { large, round, actived, range })}
+      onClick={!range ? handleCLick : () => {}}
       ref={ref}
     >
       {checkbox ? (
@@ -96,14 +104,31 @@ function MenuItem({
           checked={checked}
           readOnly
         />
+      ) : radio ? (
+        <input
+          type="radio"
+          name={group}
+          className={cx("checkbox")}
+          checked={checked}
+          readOnly
+        />
+      ) : range ? (
+        <input
+          type="range"
+          min={12}
+          max={20}
+          value={rangeValue}
+          onChange={(e) => setRangeValue(e.target.value)}
+        />
       ) : Icon ? (
         <div className={cx("icon")}>{<Icon />}</div>
       ) : null}
+
       <div className={cx({ center: !subText })}>
         <div className={cx("text")}>{text}</div>
+        <div className={cx("right-text")}>{range ? rangeValue : rightText}</div>
         {subText && <div className={cx("bottom-text")}>{subText}</div>}
       </div>
-      <div className={cx("right-text")}>{rightText}</div>
     </div>
   );
 }

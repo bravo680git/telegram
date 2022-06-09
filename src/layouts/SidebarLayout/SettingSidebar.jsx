@@ -127,11 +127,14 @@ function SettingSidebar({ actived }) {
                     <MenuItem
                       key={index}
                       text={item.text}
-                      checkbox={item.checkbox}
+                      value={settingFakeApi[mainKey][group.key][item.key]}
+                      group={group.title || mainKey}
                       Icon={item.icon}
+                      checkbox={item.checkbox}
+                      range={item.range}
+                      radio={item.radio}
                       large
                       round
-                      value={settingFakeApi[mainKey][group.key][item.key]}
                     />
                   ))}
                 </MenuGroup>
