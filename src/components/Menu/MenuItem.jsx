@@ -23,10 +23,12 @@ function MenuItem({
   animationTime = 400,
   checkbox,
   title,
+  value,
 }) {
   const dispatch = useDispatch();
   const [actived, setActived] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(value);
+  const [subText, setSubText] = useState(bottomText);
   const ref = useRef();
 
   const handleChangeControl = () => {
@@ -73,7 +75,13 @@ function MenuItem({
     });
   }, [animationTime]);
 
-  if (title) return <div>{}</div>;
+  useEffect(() => {
+    if (typeof value === "string") {
+      setSubText(value);
+    }
+  }, [value]);
+
+  if (title) return <div>{title}</div>;
 
   return (
     <div
@@ -91,9 +99,9 @@ function MenuItem({
       ) : Icon ? (
         <div className={cx("icon")}>{<Icon />}</div>
       ) : null}
-      <div className={cx({ center: !bottomText })}>
+      <div className={cx({ center: !subText })}>
         <div className={cx("text")}>{text}</div>
-        {bottomText && <div className="bottom-text">{bottomText}</div>}
+        {subText && <div className={cx("bottom-text")}>{subText}</div>}
       </div>
       <div className="rightText">{rightText}</div>
     </div>

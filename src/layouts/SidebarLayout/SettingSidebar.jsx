@@ -13,6 +13,7 @@ import settingItems from "../../utils/settingsSidebar";
 import Transition from "../../components/Transition";
 import MenuGroup from "../../components/MenuGroup";
 import NotifyText from "../../components/NotifyText";
+import settingFakeApi from "../../api/fake/setting";
 import { setSidebarControl } from "../../store/slices/controlSlices";
 
 const cx = classNames.bind(style);
@@ -23,6 +24,7 @@ function SettingSidebar({ actived }) {
   const [menuItems, setMenuItems] = useState([settingItems]);
   const [headerTitle, setHeaderTitle] = useState("Settings");
   const [notifyTextShow, setNotifyTextShow] = useState(false);
+  const [mainKey, setMainKey] = useState();
 
   const handleBack = () => {
     if (menuItems.length === 1) {
@@ -42,6 +44,7 @@ function SettingSidebar({ actived }) {
     if (item.sub) {
       setMenuItems([...menuItems, item.sub]);
       setHeaderTitle(item.text);
+      setMainKey(item.key);
     }
   };
 
@@ -75,10 +78,12 @@ function SettingSidebar({ actived }) {
               <div className={cx("info")}>
                 <div className={cx("profile")}>
                   <div className={cx("avatar")}>
-                    <AvatarItem name="Quoc Nhien" />
+                    <AvatarItem name={settingFakeApi.info.name} />
                   </div>
-                  <div className={cx("name")}>Quoc Nhien</div>
-                  <div className={cx("status")}>last seen 2 minutes ago</div>
+                  <div className={cx("name")}>{settingFakeApi.info.name}</div>
+                  <div className={cx("status")}>
+                    {settingFakeApi.info.status}
+                  </div>
                 </div>
                 <div className={cx("phone")}>
                   <MenuItem
@@ -86,7 +91,7 @@ function SettingSidebar({ actived }) {
                     large
                     round
                     Icon={AiOutlinePhone}
-                    text="+84 946694231"
+                    text={settingFakeApi.info.phone}
                     onClick={copyToClipboard}
                   />
                   {notifyTextShow && (
@@ -108,6 +113,7 @@ function SettingSidebar({ actived }) {
                     Icon={item.icon}
                     text={item.text}
                     onClick={() => handleClick(item)}
+                    value={settingFakeApi[item.key]}
                   />
                 ))}
               </div>
@@ -124,6 +130,7 @@ function SettingSidebar({ actived }) {
                       Icon={item.icon}
                       large
                       round
+                      value={settingFakeApi[mainKey][group.key][item.key]}
                     />
                   ))}
                 </MenuGroup>
