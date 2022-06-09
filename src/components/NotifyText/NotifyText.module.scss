@@ -9,4 +9,14 @@
   border-radius: 8px;
   padding: 8px 16px;
   z-index: 999;
+  animation: fadeOut 1.5s var(--delay) ease-in-out;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

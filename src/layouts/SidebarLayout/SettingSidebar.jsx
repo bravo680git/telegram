@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import classNames from "classnames/bind";
 import { AiOutlineArrowLeft, AiOutlinePhone } from "react-icons/ai";
@@ -19,8 +19,10 @@ const cx = classNames.bind(style);
 
 function SettingSidebar({ actived }) {
   const dispatch = useDispatch();
+  const notifyTextShowTime = 3000;
   const [menuItems, setMenuItems] = useState([settingItems]);
   const [headerTitle, setHeaderTitle] = useState("Settings");
+  const [notifyTextShow, setNotifyTextShow] = useState(false);
 
   const handleBack = () => {
     if (menuItems.length === 1) {
@@ -33,6 +35,7 @@ function SettingSidebar({ actived }) {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText("0388070776");
+    setNotifyTextShow(true);
   };
 
   const handleClick = (item) => {
@@ -41,6 +44,12 @@ function SettingSidebar({ actived }) {
       setHeaderTitle(item.text);
     }
   };
+
+  useEffect(() => {
+    const tId = setTimeout(() => setNotifyTextShow(false), notifyTextShowTime);
+
+    return () => clearTimeout(tId);
+  }, [notifyTextShow]);
 
   return (
     <Transition actived={actived && menuItems.length}>
@@ -80,7 +89,11 @@ function SettingSidebar({ actived }) {
                     text="+84 946694231"
                     onClick={copyToClipboard}
                   />
-                  <NotifyText time={1000}>Phone copied to clipboard</NotifyText>
+                  {notifyTextShow && (
+                    <NotifyText time={notifyTextShowTime}>
+                      Phone copied to clipboard
+                    </NotifyText>
+                  )}
                 </div>
               </div>
               <div className={cx("seperate")}>
