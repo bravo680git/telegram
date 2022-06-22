@@ -1,0 +1,50 @@
+.wrapper {
+  align-self: flex-end;
+  padding: 8px 8px 4px 8px;
+  background-color: var(--main-bg);
+  color: var(--main-txt);
+  border-radius: 10px;
+  max-width: 300px;
+  margin-top: 8px;
+  font-size: 0.88rem;
+}
+
+.wrapper.left {
+  align-self: flex-start;
+}
+
+.wrapper.center {
+  align-items: center;
+}
+
+.wrapper.left,
+.wrapper.center {
+  .detail {
+    color: var(--sub-txt);
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.message {
+  display: inline;
+}
+
+.detail {
+  display: inline;
+  color: var(--sub-color);
+  margin-left: 4px;
+  float: right;
+  margin-top: 6px;
+
+  .time {
+    font-size: 0.75rem;
+  }
+
+  .status-icon {
+    display: inline;
+  }
+}

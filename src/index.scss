@@ -42,6 +42,7 @@ a {
   --sub-border: 2px solid #3390ec;
 
   --primary-color: #3390ec;
+  --sub-color: #4fae4e;
 
   --toast-bg: rgba(0, 0, 0, 0.66);
 
@@ -104,7 +105,7 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--main-bg);
+  background: transparent;
 }
 
 /* Handle */
