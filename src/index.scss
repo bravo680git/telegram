@@ -32,6 +32,7 @@ a {
 }
 
 :root {
+  //color
   --main-bg: #ffffff;
   --sub-bg: #f4f4f5;
 
@@ -43,6 +44,7 @@ a {
 
   --primary-color: #3390ec;
   --sub-color: #4fae4e;
+  --third-color: #eeffde;
 
   --toast-bg: rgba(0, 0, 0, 0.66);
 
@@ -51,6 +53,7 @@ a {
 
   --menu-box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.24);
 
+  //animations
   --btn-active: active 0.4s forwards;
 
   --menu-open: open-menu;

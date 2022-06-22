@@ -1,7 +1,7 @@
 .wrapper {
   align-self: flex-end;
-  padding: 8px 8px 4px 8px;
-  background-color: var(--main-bg);
+  padding: 8px 8px 2px 8px;
+  background-color: var(--third-color);
   color: var(--main-txt);
   border-radius: 10px;
   max-width: 300px;
@@ -19,6 +19,7 @@
 
 .wrapper.left,
 .wrapper.center {
+  background-color: var(--main-bg);
   .detail {
     color: var(--sub-txt);
   }
@@ -34,7 +35,8 @@
 }
 
 .detail {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
   color: var(--sub-color);
   margin-left: 4px;
   float: right;
@@ -46,5 +48,7 @@
 
   .status-icon {
     display: inline;
+    font-size: 1.2rem;
+    margin-bottom: -6px;
   }
 }
