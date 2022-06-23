@@ -4,8 +4,9 @@
 
 .content {
   width: 100%;
-  height: 500px;
+  height: calc(100vh - 56px - var(--input-heigh) - 64px - 6px);
   overflow-y: hidden;
+  scroll-behavior: smooth;
 
   &:hover {
     overflow-y: overlay;
