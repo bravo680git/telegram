@@ -16,7 +16,7 @@ const cx = classNames.bind(style);
 function SidebarHeader({ closeMenu, focused }) {
   const ditpatch = useDispatch();
 
-  const [isFocus, setIsFocus] = useState(false);
+  const [isFocus, setIsFocus] = useState(focused);
   const [openMenu, setOpenMenu] = useState(false);
   const inputRef = useRef();
 
