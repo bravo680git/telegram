@@ -17,30 +17,44 @@
   font-size: 0.98rem;
   font-weight: 600;
   background-color: var(--main-bg);
+  position: relative;
 
   &:hover {
     background-color: var(--main-hover);
     border-radius: 8px;
   }
-}
-
-.item.actived {
-  position: relative;
-  color: var(--primary-color);
 
   &::after {
     content: "";
     position: absolute;
     top: 44px;
     left: 20%;
-    width: 60%;
+    width: 0;
     height: 3px;
     background-color: var(--primary-color);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    transition: width 0.2s ease-in-out;
+  }
+}
+
+.item.actived {
+  color: var(--primary-color);
+
+  &::after {
+    width: 60%;
   }
 }
 
 .result {
   height: 500px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  from {
+    opacity: 1;
+  }
 }
