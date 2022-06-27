@@ -8,6 +8,9 @@ const menuItems = [
   {
     text: "Saved Messages",
     icon: BsBookmark,
+    currentChat: {
+      name: "Saved Messaged",
+    },
   },
   {
     text: "Contacts",

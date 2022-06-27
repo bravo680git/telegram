@@ -36,6 +36,7 @@ function Menu({
           text={item.text}
           Icon={item.icon}
           control={item.control}
+          currentChat={item.currentChat}
           href={item.href}
         />
       ))}

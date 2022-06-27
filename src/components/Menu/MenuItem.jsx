@@ -6,6 +6,7 @@ import {
   setSidebarControl,
   setContentControl,
 } from "../../store/slices/controlSlices";
+import { setCurrentChat } from "../../store/slices/chatSlice";
 import style from "./Menu.module.scss";
 
 const cx = classNames.bind(style);
@@ -22,6 +23,7 @@ function MenuItem({
   control,
   href,
   onClick,
+  currentChat,
 
   range,
   radio,
@@ -58,6 +60,7 @@ function MenuItem({
     setActived(true);
     if (href) return window.open(href);
     if (control) return handleChangeControl();
+    if (currentChat) return dispatch(setCurrentChat(currentChat));
     if (onClick) onClick();
     if (checkbox) setChecked((state) => !state);
     if (radio) setChecked(true);
