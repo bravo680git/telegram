@@ -15,14 +15,19 @@ function ChatList() {
     {
       id: 2,
       name: "Nhien",
-      status: "Hao joined telegram",
+      status: "nhien joined telegram",
       date: "May 10",
     },
     {
       id: 3,
       name: "Binh",
-      status: "Hao joined telegram",
+      status: "Binh joined telegram",
       date: "May 19",
+    },
+    {
+      name: "Saved Mesages",
+      id: "savedMessages",
+      status: "New mesages!",
     },
   ];
 
@@ -30,7 +35,7 @@ function ChatList() {
     <div className={cx("wrapper")}>
       {chatList.map((item, index) => (
         <div key={index} className={cx("item-container")}>
-          <ChatItem data={item} large hover actived={index === 0} canActived />
+          <ChatItem data={item} large hover canActived />
         </div>
       ))}
     </div>
