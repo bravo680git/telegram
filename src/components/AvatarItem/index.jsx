@@ -4,7 +4,7 @@ import style from "./AvartarItem.module.scss";
 
 const cx = classNames.bind(style);
 
-function AvatarItem({ name, src }) {
+function AvatarItem({ name, src, Icon }) {
   const [fallback, setFallback] = useState(src);
 
   const colors = [
@@ -23,10 +23,16 @@ function AvatarItem({ name, src }) {
             background: colors[name.length % 3],
           }}
         >
-          {name
-            .split(" ")
-            .map((item) => item.slice(0, 1))
-            .join("")}
+          {Icon ? (
+            <i>
+              <Icon />
+            </i>
+          ) : (
+            name
+              .split(" ")
+              .map((item) => item.slice(0, 1))
+              .join("")
+          )}
         </div>
       )}
     </div>

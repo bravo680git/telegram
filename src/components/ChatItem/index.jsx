@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
+import { HiOutlineBookmark } from "react-icons/hi";
 import classNames from "classnames/bind";
+
 import { setCurrentChat } from "../../store/slices/chatSlice";
 import AvatarItem from "../AvatarItem";
 import style from "./ChatItem.module.scss";
@@ -9,7 +11,7 @@ const cx = classNames.bind(style);
 function ChatItem({ data, large, hover, canActived }) {
   const dispatch = useDispatch();
   const id = useSelector((state) => state.chat.currentChat?.id);
-  const { name, status, date } = data;
+  const { name, status, date, id: dataId } = data;
 
   return (
     <div
@@ -27,7 +29,10 @@ function ChatItem({ data, large, hover, canActived }) {
       <div className={cx("container")}>
         <div className={cx("chat-info")}>
           <div className={cx("avatar")}>
-            <AvatarItem name={name} />
+            <AvatarItem
+              name={name}
+              Icon={dataId === "savedMessages" ? HiOutlineBookmark : null}
+            />
           </div>
           <div className={cx("info")}>
             <div className={cx("name")}>{name}</div>

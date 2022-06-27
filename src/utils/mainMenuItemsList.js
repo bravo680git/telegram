@@ -10,6 +10,7 @@ const menuItems = [
     icon: BsBookmark,
     currentChat: {
       name: "Saved Messaged",
+      id: "savedMessages",
     },
   },
   {
