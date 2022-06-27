@@ -90,8 +90,6 @@
     position: absolute;
     width: 0;
     height: 0;
-    top: 50%;
-    left: 50%;
     top: var(--mouse-y);
     left: var(--mouse-x);
     transform-style: flat;

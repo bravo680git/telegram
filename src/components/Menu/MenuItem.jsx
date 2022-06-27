@@ -7,6 +7,7 @@ import {
   setContentControl,
 } from "../../store/slices/controlSlices";
 import { setCurrentChat } from "../../store/slices/chatSlice";
+import { clickAnimationSolving } from "../../utils/functions";
 import style from "./Menu.module.scss";
 
 const cx = classNames.bind(style);
@@ -76,14 +77,9 @@ function MenuItem({
   }, [actived, animationTime]);
 
   useEffect(() => {
-    const button = ref.current;
-    button.addEventListener("mousemove", (e) => {
-      const x = e.offsetX;
-      const y = e.offsetY;
-      button.style.setProperty("--mouse-x", x + "px");
-      button.style.setProperty("--mouse-y", y + "px");
-      button.style.setProperty("--animation-time", animationTime * 2 + "ms");
-    });
+    ref.current.addEventListener("mousemove", (e) =>
+      clickAnimationSolving(e, ref, animationTime)
+    );
   }, [animationTime]);
 
   useEffect(() => {

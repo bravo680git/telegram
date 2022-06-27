@@ -5,7 +5,20 @@
   background-color: var(--main-bg);
   height: 56px;
   cursor: pointer;
+  border-radius: 8px;
   position: relative;
+
+  &::after {
+    width: 0;
+    height: 0;
+    content: "";
+    position: absolute;
+    top: var(--mouse-y);
+    left: var(--mouse-x);
+    background-color: var(--sub-hover);
+    border-radius: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
 }
 
 .chat-info {
@@ -70,7 +83,6 @@
   &:hover {
     .container {
       background-color: var(--main-hover);
-      border-radius: 8px;
     }
   }
 }
@@ -78,7 +90,7 @@
 .actived {
   .container {
     background-color: var(--primary-color);
-    border-radius: 8px;
+    overflow: hidden;
   }
 
   .name,
@@ -90,6 +102,16 @@
   &:hover {
     .container {
       background-color: var(--primary-color);
+    }
+  }
+}
+
+.animation-actived {
+  .container {
+    &::after {
+      width: 1000px;
+      height: 1000px;
+      transition: width var(--animation-time), height var(--animation-time);
     }
   }
 }
