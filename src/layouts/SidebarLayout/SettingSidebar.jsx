@@ -67,8 +67,12 @@ function SettingSidebar({ actived }) {
           <div className={cx("ultils")}>
             {menuItems.length === 1 && (
               <>
-                <Button width={40} height={40} Icon={HiPencil} />
-                <Button width={40} height={40} Icon={BsThreeDotsVertical} />
+                <Button className={cx("btn")}>
+                  <HiPencil />
+                </Button>
+                <Button className={cx("btn")}>
+                  <BsThreeDotsVertical />
+                </Button>
               </>
             )}
           </div>

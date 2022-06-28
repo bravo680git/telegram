@@ -52,7 +52,7 @@ function SidebarHeader({ closeMenu, focused }) {
           <AiOutlineArrowLeft className={cx("back")} onClick={handleBack} />
         ) : (
           <Button
-            animationTime={500}
+            animationTime={800}
             className={cx("menu-icon")}
             onClick={(e) => {
               e.stopPropagation();

@@ -76,7 +76,7 @@ function MainSidebar({ actived }) {
           <ContactList />
         </div>
         <div className={cx("icon")}>
-          <Button onClick={(e) => e.stopPropagation()} animationTime={500}>
+          <Button onClick={(e) => e.stopPropagation()} animationTime={800}>
             {isActived ? (
               <AiOutlineClose onClick={() => setIsActived(false)} />
             ) : (

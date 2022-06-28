@@ -30,7 +30,9 @@ function ContactSidebar({ actived }) {
           className={cx("add-icon", { actived: isActived })}
           onClick={() => setIsActived(true)}
         >
-          <Button Icon={AiOutlinePlus} />
+          <Button>
+            <AiOutlinePlus />
+          </Button>
         </div>
       </div>
     </Transition>
