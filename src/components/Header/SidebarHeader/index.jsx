@@ -52,15 +52,15 @@ function SidebarHeader({ closeMenu, focused }) {
           <AiOutlineArrowLeft className={cx("back")} onClick={handleBack} />
         ) : (
           <Button
-            width={40}
-            height={40}
-            Icon={AiOutlineMenu}
+            animationTime={500}
             className={cx("menu-icon")}
             onClick={(e) => {
               e.stopPropagation();
               setOpenMenu(!openMenu);
             }}
-          />
+          >
+            <AiOutlineMenu />
+          </Button>
         )}
 
         <Menu

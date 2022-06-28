@@ -76,17 +76,17 @@ function MainSidebar({ actived }) {
           <ContactList />
         </div>
         <div className={cx("icon")}>
-          {isActived ? (
-            <AiOutlineClose onClick={() => setIsActived(false)} />
-          ) : (
-            <Button
-              Icon={HiPencil}
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsActived(true);
-              }}
-            />
-          )}
+          <Button onClick={(e) => e.stopPropagation()} animationTime={500}>
+            {isActived ? (
+              <AiOutlineClose onClick={() => setIsActived(false)} />
+            ) : (
+              <HiPencil
+                onClick={(e) => {
+                  setIsActived(true);
+                }}
+              />
+            )}
+          </Button>
           <Menu
             menuItems={newMessageMenu}
             actived={isActived}

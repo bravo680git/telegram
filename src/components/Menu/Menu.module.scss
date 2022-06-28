@@ -85,20 +85,6 @@
     margin-right: 16px;
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: var(--mouse-y);
-    left: var(--mouse-x);
-    transform-style: flat;
-    transition: background-color var(--animation-time);
-    transform: translate3d(-50%, -50%, 0);
-    background: var(--sub-hover);
-    border-radius: 50%;
-  }
-
   &:hover {
     cursor: pointer;
     background-color: var(--main-hover);
@@ -135,13 +121,5 @@
 
   &:hover {
     background-color: var(--main-bg);
-  }
-}
-
-.menu-item.actived {
-  &::after {
-    transition: width var(--animation-time), height var(--animation-time);
-    width: 600px;
-    height: 600px;
   }
 }

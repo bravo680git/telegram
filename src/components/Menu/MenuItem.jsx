@@ -7,7 +7,6 @@ import {
   setContentControl,
 } from "../../store/slices/controlSlices";
 import { setCurrentChat } from "../../store/slices/chatSlice";
-import { clickAnimationSolving } from "../../utils/functions";
 import style from "./Menu.module.scss";
 
 const cx = classNames.bind(style);
@@ -32,7 +31,8 @@ function MenuItem({
 
   round,
   large,
-  animationTime = 400,
+
+  delay = 0,
 }) {
   const dispatch = useDispatch();
   const [actived, setActived] = useState(false);
@@ -59,28 +59,15 @@ function MenuItem({
 
   const handleCLick = () => {
     setActived(true);
-    if (href) return window.open(href);
-    if (control) return handleChangeControl();
-    if (currentChat) return dispatch(setCurrentChat(currentChat));
-    if (onClick) onClick();
-    if (checkbox) setChecked((state) => !state);
-    if (radio) setChecked(true);
+    setTimeout(() => {
+      if (href) return window.open(href);
+      if (control) return handleChangeControl();
+      if (currentChat) return dispatch(setCurrentChat(currentChat));
+      if (onClick) onClick();
+      if (checkbox) setChecked((state) => !state);
+      if (radio) setChecked(true);
+    }, delay);
   };
-
-  useEffect(() => {
-    let tId;
-    if (actived) {
-      tId = setTimeout(() => setActived(false), animationTime);
-    }
-
-    return () => clearTimeout(tId);
-  }, [actived, animationTime]);
-
-  useEffect(() => {
-    ref.current.addEventListener("mousemove", (e) =>
-      clickAnimationSolving(e, ref, animationTime)
-    );
-  }, [animationTime]);
 
   useEffect(() => {
     if (typeof value === "string") {
