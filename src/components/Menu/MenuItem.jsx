@@ -31,7 +31,8 @@ function MenuItem({
 
   round,
   large,
-  animationTime = 400,
+
+  delay = 0,
 }) {
   const dispatch = useDispatch();
   const [actived, setActived] = useState(false);
@@ -58,33 +59,15 @@ function MenuItem({
 
   const handleCLick = () => {
     setActived(true);
-    if (href) return window.open(href);
-    if (control) return handleChangeControl();
-    if (currentChat) return dispatch(setCurrentChat(currentChat));
-    if (onClick) onClick();
-    if (checkbox) setChecked((state) => !state);
-    if (radio) setChecked(true);
+    setTimeout(() => {
+      if (href) return window.open(href);
+      if (control) return handleChangeControl();
+      if (currentChat) return dispatch(setCurrentChat(currentChat));
+      if (onClick) onClick();
+      if (checkbox) setChecked((state) => !state);
+      if (radio) setChecked(true);
+    }, delay);
   };
-
-  useEffect(() => {
-    let tId;
-    if (actived) {
-      tId = setTimeout(() => setActived(false), animationTime);
-    }
-
-    return () => clearTimeout(tId);
-  }, [actived, animationTime]);
-
-  useEffect(() => {
-    const button = ref.current;
-    button.addEventListener("mousemove", (e) => {
-      const x = e.offsetX;
-      const y = e.offsetY;
-      button.style.setProperty("--mouse-x", x + "px");
-      button.style.setProperty("--mouse-y", y + "px");
-      button.style.setProperty("--animation-time", animationTime * 2 + "ms");
-    });
-  }, [animationTime]);
 
   useEffect(() => {
     if (typeof value === "string") {

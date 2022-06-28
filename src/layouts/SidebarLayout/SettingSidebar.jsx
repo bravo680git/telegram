@@ -14,7 +14,9 @@ import Transition from "../../components/Transition";
 import MenuGroup from "../../components/MenuGroup";
 import NotifyText from "../../components/NotifyText";
 import settingFakeApi from "../../api/fake/setting";
+import ClickAnimation from "../../components/ClickAnimation";
 import { setSidebarControl } from "../../store/slices/controlSlices";
+import { clickAnimationDuration } from "../../utils/constansts";
 
 const cx = classNames.bind(style);
 
@@ -86,14 +88,16 @@ function SettingSidebar({ actived }) {
                   </div>
                 </div>
                 <div className={cx("phone")}>
-                  <MenuItem
-                    bottomText="Phone"
-                    large
-                    round
-                    Icon={AiOutlinePhone}
-                    text={settingFakeApi.info.phone}
-                    onClick={copyToClipboard}
-                  />
+                  <ClickAnimation>
+                    <MenuItem
+                      bottomText="Phone"
+                      large
+                      round
+                      Icon={AiOutlinePhone}
+                      text={settingFakeApi.info.phone}
+                      onClick={copyToClipboard}
+                    />
+                  </ClickAnimation>
                   {notifyTextShow && (
                     <NotifyText time={notifyTextShowTime}>
                       Phone copied to clipboard
@@ -106,16 +110,18 @@ function SettingSidebar({ actived }) {
               </div>
               <div className={cx("setting-menu")}>
                 {menuItems[menuItems.length - 1].map((item, index) => (
-                  <MenuItem
-                    large
-                    round
-                    key={index}
-                    Icon={item.icon}
-                    text={item.text}
-                    onClick={() => handleClick(item)}
-                    value={settingFakeApi[item.key]}
-                    rightText={settingFakeApi[item.key].rightText}
-                  />
+                  <ClickAnimation key={index}>
+                    <MenuItem
+                      large
+                      round
+                      Icon={item.icon}
+                      text={item.text}
+                      onClick={() => handleClick(item)}
+                      value={settingFakeApi[item.key]}
+                      rightText={settingFakeApi[item.key].rightText}
+                      delay={clickAnimationDuration}
+                    />
+                  </ClickAnimation>
                 ))}
               </div>
             </>
@@ -135,6 +141,7 @@ function SettingSidebar({ actived }) {
                       radio={item.radio}
                       large
                       round
+                      delay={clickAnimationDuration}
                     />
                   ))}
                 </MenuGroup>
