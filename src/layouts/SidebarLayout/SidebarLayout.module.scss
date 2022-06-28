@@ -84,7 +84,7 @@
 }
 
 //settings sidebar
-.seting-sidebar {
+.setting-sidebar {
   background-color: var(--sub-bg);
   height: 100%;
 
@@ -101,7 +101,7 @@
   }
 
   .back {
-    flex: 2;
+    width: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,6 +124,7 @@
 
   .title {
     flex: 6;
+    margin-left: 8px;
     font-size: 1.32rem;
     font-weight: 600;
     color: var(--main-txt);

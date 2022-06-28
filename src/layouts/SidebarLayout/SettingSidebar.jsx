@@ -58,7 +58,7 @@ function SettingSidebar({ actived }) {
 
   return (
     <Transition actived={actived && menuItems.length}>
-      <div className={cx("seting-sidebar")}>
+      <div className={cx("setting-sidebar")}>
         <div className={cx("header")}>
           <div className={cx("back")} onClick={handleBack}>
             <AiOutlineArrowLeft />
@@ -134,9 +134,8 @@ function SettingSidebar({ actived }) {
               {menuItems[menuItems.length - 1].map((group, index) => (
                 <MenuGroup key={index} title={group.title}>
                   {group.sub.map((item, index) => (
-                    <ClickAnimation duration={800}>
+                    <ClickAnimation duration={800} key={index}>
                       <MenuItem
-                        key={index}
                         text={item.text}
                         value={settingFakeApi[mainKey][group.key][item.key]}
                         group={group.title || mainKey}
