@@ -19,6 +19,8 @@
   &::after {
     width: 1000px;
     height: 1000px;
-    transition: width var(--animation-time), height var(--animation-time);
+    opacity: 0;
+    transition: width var(--animation-time), height var(--animation-time),
+      opacity var(--animation-time);
   }
 }

@@ -130,7 +130,7 @@ function SettingSidebar({ actived }) {
               {menuItems[menuItems.length - 1].map((group, index) => (
                 <MenuGroup key={index} title={group.title}>
                   {group.sub.map((item, index) => (
-                    <ClickAnimation duration={500}>
+                    <ClickAnimation duration={800}>
                       <MenuItem
                         key={index}
                         text={item.text}
