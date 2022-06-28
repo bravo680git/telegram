@@ -109,7 +109,7 @@ function SettingSidebar({ actived }) {
                 <div></div>
               </div>
               <div className={cx("setting-menu")}>
-                {menuItems[menuItems.length - 1].map((item, index) => (
+                {menuItems[0].map((item, index) => (
                   <ClickAnimation key={index}>
                     <MenuItem
                       large
@@ -130,19 +130,21 @@ function SettingSidebar({ actived }) {
               {menuItems[menuItems.length - 1].map((group, index) => (
                 <MenuGroup key={index} title={group.title}>
                   {group.sub.map((item, index) => (
-                    <MenuItem
-                      key={index}
-                      text={item.text}
-                      value={settingFakeApi[mainKey][group.key][item.key]}
-                      group={group.title || mainKey}
-                      Icon={item.icon}
-                      checkbox={item.checkbox}
-                      range={item.range}
-                      radio={item.radio}
-                      large
-                      round
-                      delay={clickAnimationDuration}
-                    />
+                    <ClickAnimation duration={500}>
+                      <MenuItem
+                        key={index}
+                        text={item.text}
+                        value={settingFakeApi[mainKey][group.key][item.key]}
+                        group={group.title || mainKey}
+                        Icon={item.icon}
+                        checkbox={item.checkbox}
+                        range={item.range}
+                        radio={item.radio}
+                        large
+                        round
+                        delay={0}
+                      />
+                    </ClickAnimation>
                   ))}
                 </MenuGroup>
               ))}
