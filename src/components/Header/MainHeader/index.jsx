@@ -11,7 +11,7 @@ function MainHeader({ data }) {
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <div className={cx("chat-item")}>
-          <ChatItem data={data} />
+          <ChatItem data={data} animation={false} />
         </div>
         <div className={cx("utils")}>
           <div>

@@ -4,11 +4,12 @@ import classNames from "classnames/bind";
 
 import { setCurrentChat } from "../../store/slices/chatSlice";
 import AvatarItem from "../AvatarItem";
+import ClickAnimation from "../ClickAnimation";
 import style from "./ChatItem.module.scss";
 
 const cx = classNames.bind(style);
 
-function ChatItem({ data, large, hover, canActived }) {
+function ChatItem({ data, large, hover, canActived, animation = true }) {
   const dispatch = useDispatch();
   const id = useSelector((state) => state.chat.currentChat?.id);
   const { name, status, date, id: dataId } = data;
@@ -26,21 +27,23 @@ function ChatItem({ data, large, hover, canActived }) {
         )
       }
     >
-      <div className={cx("container")}>
-        <div className={cx("chat-info")}>
-          <div className={cx("avatar")}>
-            <AvatarItem
-              name={name}
-              Icon={dataId === "savedMessages" ? HiOutlineBookmark : null}
-            />
+      <ClickAnimation enable={animation}>
+        <div className={cx("container")}>
+          <div className={cx("chat-info")}>
+            <div className={cx("avatar")}>
+              <AvatarItem
+                name={name}
+                Icon={dataId === "savedMessages" ? HiOutlineBookmark : null}
+              />
+            </div>
+            <div className={cx("info")}>
+              <div className={cx("name")}>{name}</div>
+              <div className={cx("status")}>{status}</div>
+            </div>
+            {date ? <div className={cx("date")}>{date}</div> : null}
           </div>
-          <div className={cx("info")}>
-            <div className={cx("name")}>{name}</div>
-            <div className={cx("status")}>{status}</div>
-          </div>
-          {date ? <div className={cx("date")}>{date}</div> : null}
         </div>
-      </div>
+      </ClickAnimation>
     </div>
   );
 }
