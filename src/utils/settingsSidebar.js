@@ -78,21 +78,110 @@ const settingItems = [
         key: "download",
         sub: [
           {
-            text: "Auto-downlaod Media",
+            text: "Auto-download Media",
             key: "auto",
             checkbox: true,
           },
           {
             text: "Photos",
             key: "photo",
+            sub: [
+              {
+                title: "Auto-download photos",
+                key: "autoDownload",
+                sub: [
+                  {
+                    text: "Contacts",
+                    key: "contact",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Private Chats",
+                    key: "private",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Group Chats",
+                    key: "group",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Channels",
+                    key: "channel",
+                    checkbox: true,
+                  },
+                ],
+              },
+            ],
           },
           {
             text: "Videos",
             key: "video",
+            sub: [
+              {
+                title: "Auto-download videos and GIFs",
+                key: "autoDownload",
+                sub: [
+                  {
+                    text: "Contacts",
+                    key: "contact",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Private Chats",
+                    key: "private",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Group Chats",
+                    key: "group",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Channels",
+                    key: "channel",
+                    checkbox: true,
+                  },
+                ],
+              },
+            ],
           },
           {
             text: "Files",
             key: "file",
+            sub: [
+              {
+                title: "Auto-download files and music",
+                key: "autoDownload",
+                sub: [
+                  {
+                    text: "Contacts",
+                    key: "contact",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Private Chats",
+                    key: "private",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Group Chats",
+                    key: "group",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Channels",
+                    key: "channel",
+                    checkbox: true,
+                  },
+                  {
+                    text: "Maximum file size",
+                    key: "maxSize",
+                    range: true,
+                  },
+                ],
+              },
+            ],
           },
           {
             text: "Reset Auto-Download Settings",

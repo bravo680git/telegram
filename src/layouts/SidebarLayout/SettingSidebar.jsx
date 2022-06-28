@@ -38,7 +38,7 @@ function SettingSidebar({ actived }) {
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText("0388070776");
+    navigator.clipboard.writeText(settingFakeApi.info.phone);
     setNotifyTextShow(true);
   };
 
@@ -137,7 +137,9 @@ function SettingSidebar({ actived }) {
                     <ClickAnimation duration={800} key={index}>
                       <MenuItem
                         text={item.text}
-                        value={settingFakeApi[mainKey][group.key][item.key]}
+                        value={
+                          false && settingFakeApi[mainKey][group.key][item.key]
+                        }
                         group={group.title || mainKey}
                         Icon={item.icon}
                         checkbox={item.checkbox}
@@ -146,6 +148,7 @@ function SettingSidebar({ actived }) {
                         large
                         round
                         delay={0}
+                        onClick={() => handleClick(item)}
                       />
                     </ClickAnimation>
                   ))}
