@@ -16,7 +16,10 @@ function SearchSidebar({ actived }) {
     actived && (
       <div className={cx("search-sidebar")}>
         <SidebarHeader focused />
-        <SlideMenu />
+        <SlideMenu
+          btnList={["Chats", "Media", "Links", "Files", "Music", "Voice"]}
+          tickSize={10}
+        />
         <div className={cx("body")}></div>
       </div>
     )
