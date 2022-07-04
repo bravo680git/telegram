@@ -24,44 +24,8 @@ function MainSidebar({ actived }) {
     setIsActived(false);
   }, [closeMenu]);
 
-  return firstRender ? (
-    <div
-      className={cx("main-sidebar")}
-      onMouseLeave={() => setCloseMenu((prev) => prev + 1)}
-      onClick={() => setCloseMenu((prev) => prev + 1)}
-    >
-      <SidebarHeader closeMenu={closeMenu} />
-      <div className={cx("body")}>
-        <ChatList />
-        <div className={cx("seperate")}>
-          <div></div>
-        </div>
-        <ContactList />
-      </div>
-      <div className={cx("icon")}>
-        {isActived ? (
-          <AiOutlineClose onClick={() => setIsActived(false)} />
-        ) : (
-          <Button
-            Icon={HiPencil}
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsActived(true);
-            }}
-          />
-        )}
-        <Menu
-          menuItems={newMessageMenu}
-          actived={isActived}
-          width={200}
-          x={-180}
-          y={-142}
-          transformOrigin="bottom right"
-        />
-      </div>
-    </div>
-  ) : (
-    <Transition actived={actived} leftToRight>
+  return (
+    <Transition enable={!firstRender} actived={actived} leftToRight>
       <div
         className={cx("main-sidebar")}
         onMouseLeave={() => setCloseMenu((prev) => prev + 1)}

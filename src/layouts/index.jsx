@@ -18,7 +18,9 @@ function Layout() {
         <Sidebars.SettingSidebar actived={sidebar === "settings"} />
         <Sidebars.ContactSidebar actived={sidebar === "contact"} />
         <Sidebars.SearchSidebar actived={sidebar === "search"} />
-        <Sidebars.MainSidebar actived={sidebar === "main"} />
+        <Sidebars.MainSidebar
+          actived={sidebar === "main" || sidebar === "start"}
+        />
       </SideBar>
       <Content>
         <Contents.MainContent actived={content === "main"} />

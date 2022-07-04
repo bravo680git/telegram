@@ -1,7 +1,7 @@
 import { useTransition, animated } from "@react-spring/web";
 import { slideAnimationDuration } from "../../utils/constansts";
 
-function Transition({ children, actived, leftToRight, delay }) {
+function Transition({ children, enable, actived, leftToRight, delay }) {
   const style = leftToRight
     ? {
         from: { x: -600, opacity: 1, position: "absolute" },
@@ -18,16 +18,19 @@ function Transition({ children, actived, leftToRight, delay }) {
     delay: delay,
     config: { duration: slideAnimationDuration },
   });
-  return transition(
-    (style, item) =>
-      item && (
-        <animated.div
-          style={{ ...style, top: 0, width: "100%", height: "100%" }}
-        >
-          {children}
-        </animated.div>
+
+  return enable
+    ? transition(
+        (style, item) =>
+          item && (
+            <animated.div
+              style={{ ...style, top: 0, width: "100%", height: "100%" }}
+            >
+              {children}
+            </animated.div>
+          )
       )
-  );
+    : actived && <div>{children}</div>;
 }
 
 export default Transition;
