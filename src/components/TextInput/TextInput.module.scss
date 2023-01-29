@@ -1,0 +1,42 @@
+.wrapper {
+  border: var(--main-border);
+  width: 100%;
+  height: 54px;
+  border-radius: 8px;
+  color: var(--sub-txt);
+  position: relative;
+
+  input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    caret-color: var(--primary-color);
+    border-radius: inherit;
+    padding-left: 12px;
+  }
+
+  label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: all 0.3s;
+    padding: 0 8px;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  &:focus-within,
+  &.filled {
+    label {
+      top: 0;
+      font-size: 12px;
+      background-color: var(--main-bg);
+    }
+  }
+}
