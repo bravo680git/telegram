@@ -1,5 +1,5 @@
 import { useTransition, animated } from "@react-spring/web";
-import { slideAnimationDuration } from "../../utils/constansts";
+import { slideAnimationDuration } from "utils/constansts";
 
 function Transition({ children, enable, actived, leftToRight, delay }) {
   const style = leftToRight

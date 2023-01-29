@@ -4,14 +4,14 @@ import classNames from "classnames/bind";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
 
-import ChatList from "../../components/ChatList";
-import ContactList from "../../components/ContactList";
-import { SidebarHeader } from "../../components/Header";
-import Menu from "../../components/Menu";
-import Button from "../../components/Button";
-import newMessageMenu from "../../utils/newMessageMenu";
+import ChatList from "components/ChatList";
+import ContactList from "components/ContactList";
+import { SidebarHeader } from "components/Header";
+import Menu from "components/Menu";
+import Button from "components/Button";
+import newMessageMenu from "utils/newMessageMenu";
+import Transition from "components/Transition";
 import style from "./SidebarLayout.module.scss";
-import Transition from "../../components/Transition";
 
 const cx = classNames.bind(style);
 
@@ -19,6 +19,11 @@ function MainSidebar({ actived }) {
   const firstRender = useSelector((state) => state.control.sidebar === "start");
   const [isActived, setIsActived] = useState(false);
   const [closeMenu, setCloseMenu] = useState(0);
+
+  const handleBtnCLick = (e) => {
+    e.stopPropagation();
+    setIsActived(!isActived);
+  };
 
   useEffect(() => {
     setIsActived(false);
@@ -40,16 +45,8 @@ function MainSidebar({ actived }) {
           <ContactList />
         </div>
         <div className={cx("icon")}>
-          <Button onClick={(e) => e.stopPropagation()} animationTime={800}>
-            {isActived ? (
-              <AiOutlineClose onClick={() => setIsActived(false)} />
-            ) : (
-              <HiPencil
-                onClick={(e) => {
-                  setIsActived(true);
-                }}
-              />
-            )}
+          <Button onClick={handleBtnCLick} animationTime={800}>
+            {isActived ? <AiOutlineClose /> : <HiPencil />}
           </Button>
           <Menu
             menuItems={newMessageMenu}

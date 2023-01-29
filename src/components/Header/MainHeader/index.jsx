@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import { AiOutlinePhone, AiOutlineSearch } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import ChatItem from "../../ChatItem";
+import ChatItem from "components/ChatItem";
 import style from "./MainHeader.module.scss";
 
 const cx = classNames.bind(style);

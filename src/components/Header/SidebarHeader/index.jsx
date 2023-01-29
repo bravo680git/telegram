@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import { AiOutlineArrowLeft, AiOutlineMenu } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 
-import { setSidebarControl } from "../../../store/slices/controlSlices";
-import Button from "../../Button";
-import menuItems from "../../../utils/mainMenuItemsList";
-import Menu from "../../Menu";
+import Button from "components/Button";
+import Menu from "components/Menu";
+import { slideAnimationDuration } from "utils/constansts";
+import { setSidebarControl } from "store/slices/controlSlices";
+import menuItems from "utils/mainMenuItemsList";
 import style from "./SidebarHeader.module.scss";
-import { slideAnimationDuration } from "../../../utils/constansts";
 
 const cx = classNames.bind(style);
 

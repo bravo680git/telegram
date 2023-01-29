@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import { HiOutlineBookmark } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setCurrentChat } from "../../store/slices/chatSlice";
+import { setCurrentChat } from "store/slices/chatSlice";
 import AvatarItem from "../AvatarItem";
 import ClickAnimation from "../ClickAnimation";
 import style from "./ChatItem.module.scss";

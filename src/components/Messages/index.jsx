@@ -4,7 +4,7 @@ import MessageItem from "../MessageItem";
 import ChatInput from "../ChatInput";
 import style from "./Messages.module.scss";
 
-import data from "../../api/fake/messages";
+import data from "api/fake/messages";
 
 const cx = classNames.bind(style);
 

@@ -5,8 +5,8 @@ import classNames from "classnames/bind";
 import {
   setSidebarControl,
   setContentControl,
-} from "../../store/slices/controlSlices";
-import { setCurrentChat } from "../../store/slices/chatSlice";
+} from "store/slices/controlSlices";
+import { setCurrentChat } from "store/slices/chatSlice";
 import style from "./Menu.module.scss";
 
 const cx = classNames.bind(style);

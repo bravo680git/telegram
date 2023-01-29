@@ -5,18 +5,18 @@ import { AiOutlineArrowLeft, AiOutlinePhone } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { HiPencil } from "react-icons/hi";
 
+import Button from "components/Button";
+import AvatarItem from "components/AvatarItem";
+import MenuItem from "components/Menu/MenuItem";
+import Transition from "components/Transition";
+import MenuGroup from "components/MenuGroup";
+import NotifyText from "components/NotifyText";
+import ClickAnimation from "components/ClickAnimation";
+import settingFakeApi from "api/fake/setting";
+import { setSidebarControl } from "store/slices/controlSlices";
+import settingItems from "utils/settingsSidebar";
+import { clickAnimationDuration } from "utils/constansts";
 import style from "./SidebarLayout.module.scss";
-import Button from "../../components/Button";
-import AvatarItem from "../../components/AvatarItem";
-import MenuItem from "../../components/Menu/MenuItem";
-import settingItems from "../../utils/settingsSidebar";
-import Transition from "../../components/Transition";
-import MenuGroup from "../../components/MenuGroup";
-import NotifyText from "../../components/NotifyText";
-import settingFakeApi from "../../api/fake/setting";
-import ClickAnimation from "../../components/ClickAnimation";
-import { setSidebarControl } from "../../store/slices/controlSlices";
-import { clickAnimationDuration } from "../../utils/constansts";
 
 const cx = classNames.bind(style);
 
