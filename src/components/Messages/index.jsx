@@ -4,7 +4,7 @@ import MessageItem from "../MessageItem";
 import ChatInput from "../ChatInput";
 import style from "./Messages.module.scss";
 
-import data from "api/fake/messages";
+import { messages } from "utils/fakeData";
 
 const cx = classNames.bind(style);
 
@@ -49,7 +49,7 @@ function Messages() {
     <div className={cx("warpper")}>
       <div className={cx("content")} ref={contentRef}>
         <div className={cx("body")}>
-          {data.map((item, index) => (
+          {messages.map((item, index) => (
             <MessageItem
               key={index}
               left={item.sender !== "a"}
