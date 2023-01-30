@@ -1,24 +1,25 @@
 import classNames from "classnames/bind";
 import { HiOutlineBookmark } from "react-icons/hi";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { setCurrentChat } from "store/slices/chatSlice";
 import AvatarItem from "../AvatarItem";
 import ClickAnimation from "../ClickAnimation";
 import style from "./ChatItem.module.scss";
 
 const cx = classNames.bind(style);
 
-function ChatItem({ data, large, hover, canActived, animation = true }) {
-  const dispatch = useDispatch();
+function ChatItem({
+  data,
+  large,
+  hover,
+  checkbox,
+  canActived,
+  animation = true,
+  onClick,
+  checked,
+}) {
   const id = useSelector((state) => state.chat.currentChat?.id);
   const { name, status, date, id: dataId } = data;
-
-  const handleClick = () => {
-    dispatch(
-      setCurrentChat({ name: data.name, status: data.status, id: data.id })
-    );
-  };
 
   return (
     <div
@@ -27,10 +28,11 @@ function ChatItem({ data, large, hover, canActived, animation = true }) {
         hover,
         actived: canActived && id === data.id,
       })}
-      onClick={handleClick}
+      onClick={onClick}
     >
       <ClickAnimation enable={animation}>
         <div className={cx("container")}>
+          {checkbox && <input type="checkbox" checked={checked} readOnly />}
           <div className={cx("chat-info")}>
             <div className={cx("avatar")}>
               <AvatarItem

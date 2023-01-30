@@ -19,6 +19,14 @@
     border-radius: 50%;
     transform: translate3d(-50%, -50%, 0);
   }
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
 }
 
 .chat-info {

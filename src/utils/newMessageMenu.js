@@ -11,6 +11,7 @@ const newMessageMenu = [
   {
     text: "New Group",
     icon: RiGroupLine,
+    control: "sidebar-newgroup",
   },
   {
     text: "New Private Chat",
