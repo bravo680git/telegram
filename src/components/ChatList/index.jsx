@@ -1,41 +1,34 @@
+import { useDispatch } from "react-redux";
 import classNames from "classnames/bind";
+
 import ChatItem from "../ChatItem";
+import { setCurrentChat } from "store/slices/chatSlice";
 import style from "./ChatList.module.scss";
+
+import { chats } from "utils/fakeData";
 
 const cx = classNames.bind(style);
 
 function ChatList() {
-  const chatList = [
-    {
-      id: 1,
-      name: "Hao",
-      status: "Hao joined telegram",
-      date: "May 4",
-    },
-    {
-      id: 2,
-      name: "Nhien",
-      status: "nhien joined telegram",
-      date: "May 10",
-    },
-    {
-      id: 3,
-      name: "Binh",
-      status: "Binh joined telegram",
-      date: "May 19",
-    },
-    {
-      name: "Saved Mesages",
-      id: "savedMessages",
-      status: "New mesages!",
-    },
-  ];
+  const dispatch = useDispatch();
+
+  const handleClick = (data) => {
+    dispatch(
+      setCurrentChat({ name: data.name, status: data.status, id: data.id })
+    );
+  };
 
   return (
     <div className={cx("wrapper")}>
-      {chatList.map((item, index) => (
+      {chats.map((item, index) => (
         <div key={index} className={cx("item-container")}>
-          <ChatItem data={item} large hover canActived />
+          <ChatItem
+            data={item}
+            large
+            hover
+            canActived
+            onClick={() => handleClick(item)}
+          />
         </div>
       ))}
     </div>

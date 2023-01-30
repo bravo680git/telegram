@@ -1,59 +1,33 @@
 import classNames from "classnames/bind";
+import { useDispatch } from "react-redux";
+
 import ChatItem from "../ChatItem";
+import { setCurrentChat } from "store/slices/chatSlice";
 import style from "./ContactList.module.scss";
 
 const cx = classNames.bind(style);
 
-function ContactList({ fullSize, onClick }) {
-  const contacts = [
-    {
-      id: 5,
-      name: "Hao",
-      status: "Hao joined telegram",
-    },
-    {
-      id: 6,
-      name: "Nhien",
-      status: "Hao joined telegram",
-    },
-    {
-      id: 7,
-      name: "Binh",
-      status: "Hao joined telegram",
-    },
-    {
-      id: 8,
-      name: "Huy",
-      status: "Hao joined telegram",
-    },
-    {
-      id: 9,
-      name: "Hao",
-      status: "Hao joined telegram",
-    },
-    {
-      id: 10,
-      name: "Nhien",
-      status: "Hao joined telegram",
-    },
-    {
-      id: 11,
-      name: "Binh",
-      status: "Hao joined telegram",
-    },
-    {
-      id: 12,
-      name: "Huy",
-      status: "Hao joined telegram",
-    },
-  ];
+function ContactList({ fullSize, onClick, list }) {
+  const dispatch = useDispatch();
+
+  const handleClick = (data) => {
+    dispatch(
+      setCurrentChat({ name: data.name, status: data.status, id: data.id })
+    );
+  };
 
   return (
     <div className={cx("wrapper")} onClick={onClick}>
       {!fullSize ? <div className={cx("title")}>Contacts</div> : null}
-      {contacts.map((item, index) => (
+      {list?.map((item, index) => (
         <div key={index}>
-          <ChatItem data={item} hover large={fullSize} canActived />
+          <ChatItem
+            data={item}
+            hover
+            large={fullSize}
+            canActived
+            onClick={() => handleClick(item)}
+          />
         </div>
       ))}
     </div>

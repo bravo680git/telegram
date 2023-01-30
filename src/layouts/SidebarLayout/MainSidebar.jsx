@@ -13,12 +13,17 @@ import newMessageMenu from "utils/newMessageMenu";
 import SlideTransition from "components/SlideTransition";
 import style from "./SidebarLayout.module.scss";
 
+import { chats, contacts } from "utils/fakeData";
+
 const cx = classNames.bind(style);
 
 function MainSidebar({ actived }) {
   const firstRender = useSelector((state) => state.control.sidebar === "start");
   const [isActived, setIsActived] = useState(false);
   const [closeMenu, setCloseMenu] = useState(0);
+  const contactsList = contacts.filter(
+    (contact) => !chats.find((chat) => chat.id === contact.id)
+  );
 
   const handleBtnCLick = (e) => {
     e.stopPropagation();
@@ -42,7 +47,7 @@ function MainSidebar({ actived }) {
           <div className={cx("seperate")}>
             <div></div>
           </div>
-          <ContactList />
+          <ContactList list={contactsList} />
         </div>
         <div className={cx("icon")}>
           <Button onClick={handleBtnCLick} animationTime={800}>

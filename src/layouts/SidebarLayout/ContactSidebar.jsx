@@ -10,6 +10,8 @@ import Button from "components/Button";
 import style from "./SidebarLayout.module.scss";
 import SlideTransition from "components/SlideTransition";
 
+import { contacts } from "utils/fakeData";
+
 const cx = classNames.bind(style);
 
 function ContactSidebar({ actived }) {
@@ -22,6 +24,7 @@ function ContactSidebar({ actived }) {
         <SidebarHeader focused />
         <div className={cx("body")}>
           <ContactList
+            list={contacts}
             fullSize
             onClick={() => dispatch(setSidebarControl("main"))}
           />
