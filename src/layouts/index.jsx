@@ -15,12 +15,13 @@ function Layout() {
   return (
     <div className={cx("wrapper")}>
       <SideBar>
-        <Sidebars.SettingSidebar actived={sidebar === "settings"} />
-        <Sidebars.ContactSidebar actived={sidebar === "contact"} />
-        <Sidebars.SearchSidebar actived={sidebar === "search"} />
         <Sidebars.MainSidebar
           actived={sidebar === "main" || sidebar === "start"}
         />
+        <Sidebars.SettingSidebar actived={sidebar === "settings"} />
+        <Sidebars.ContactSidebar actived={sidebar === "contact"} />
+        <Sidebars.SearchSidebar actived={sidebar === "search"} />
+        <Sidebars.NewChannelSidebar actived={sidebar === "newchannel"} />
       </SideBar>
       <Content>
         <Contents.MainContent actived={content === "main"} />

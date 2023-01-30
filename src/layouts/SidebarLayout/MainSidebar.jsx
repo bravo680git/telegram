@@ -10,7 +10,7 @@ import { SidebarHeader } from "components/Header";
 import Menu from "components/Menu";
 import Button from "components/Button";
 import newMessageMenu from "utils/newMessageMenu";
-import Transition from "components/Transition";
+import SlideTransition from "components/SlideTransition";
 import style from "./SidebarLayout.module.scss";
 
 const cx = classNames.bind(style);
@@ -30,7 +30,7 @@ function MainSidebar({ actived }) {
   }, [closeMenu]);
 
   return (
-    <Transition enable={!firstRender} actived={actived} leftToRight>
+    <SlideTransition enable={!firstRender} actived={actived} leftToRight>
       <div
         className={cx("main-sidebar")}
         onMouseLeave={() => setCloseMenu((prev) => prev + 1)}
@@ -58,7 +58,7 @@ function MainSidebar({ actived }) {
           />
         </div>
       </div>
-    </Transition>
+    </SlideTransition>
   );
 }
 

@@ -6,6 +6,7 @@ const newMessageMenu = [
   {
     text: "New Channel",
     icon: HiOutlineSpeakerphone,
+    control: "sidebar-newchannel",
   },
   {
     text: "New Group",

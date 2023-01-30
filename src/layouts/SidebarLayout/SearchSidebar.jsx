@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import { setSidebarControl } from "store/slices/controlSlices";
 import { SidebarHeader } from "components/Header";
 import SlideMenu from "components/SlideMenu";
-import Transition from "components/Transition";
+import SlideTransition from "components/SlideTransition";
 import style from "./SidebarLayout.module.scss";
 
 const cx = classNames.bind(style);
@@ -13,7 +13,7 @@ function SearchSidebar({ actived }) {
   const dispatch = useDispatch();
 
   return (
-    actived && (
+    <SlideTransition actived={actived} enable>
       <div className={cx("search-sidebar")}>
         <SidebarHeader focused />
         <SlideMenu
@@ -22,7 +22,7 @@ function SearchSidebar({ actived }) {
         />
         <div className={cx("body")}></div>
       </div>
-    )
+    </SlideTransition>
   );
 }
 

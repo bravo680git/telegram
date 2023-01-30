@@ -8,7 +8,7 @@ import { HiPencil } from "react-icons/hi";
 import Button from "components/Button";
 import AvatarItem from "components/AvatarItem";
 import MenuItem from "components/Menu/MenuItem";
-import Transition from "components/Transition";
+import SlideTransition from "components/SlideTransition";
 import MenuGroup from "components/MenuGroup";
 import NotifyText from "components/NotifyText";
 import ClickAnimation from "components/ClickAnimation";
@@ -57,7 +57,7 @@ function SettingSidebar({ actived }) {
   }, [notifyTextShow]);
 
   return (
-    <Transition actived={actived && menuItems.length}>
+    <SlideTransition actived={actived && menuItems.length} enable>
       <div className={cx("setting-sidebar")}>
         <div className={cx("header")}>
           <div className={cx("back")} onClick={handleBack}>
@@ -154,7 +154,7 @@ function SettingSidebar({ actived }) {
           )}
         </div>
       </div>
-    </Transition>
+    </SlideTransition>
   );
 }
 

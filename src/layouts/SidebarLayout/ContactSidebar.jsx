@@ -8,7 +8,7 @@ import { SidebarHeader } from "components/Header";
 import ContactList from "components/ContactList";
 import Button from "components/Button";
 import style from "./SidebarLayout.module.scss";
-import Transition from "components/Transition";
+import SlideTransition from "components/SlideTransition";
 
 const cx = classNames.bind(style);
 
@@ -17,7 +17,7 @@ function ContactSidebar({ actived }) {
   const [isActived, setIsActived] = useState(false);
 
   return (
-    <Transition actived={actived}>
+    <SlideTransition actived={actived} enable>
       <div className={cx("contact-sidebar")}>
         <SidebarHeader focused />
         <div className={cx("body")}>
@@ -35,7 +35,7 @@ function ContactSidebar({ actived }) {
           </Button>
         </div>
       </div>
-    </Transition>
+    </SlideTransition>
   );
 }
 
