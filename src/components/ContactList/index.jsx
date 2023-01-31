@@ -7,7 +7,7 @@ import style from "./ContactList.module.scss";
 
 const cx = classNames.bind(style);
 
-function ContactList({ fullSize, onClick, list }) {
+function ContactList({ fullSize, onClick, list, showTitle }) {
   const dispatch = useDispatch();
 
   const handleClick = (data) => {
@@ -18,7 +18,7 @@ function ContactList({ fullSize, onClick, list }) {
 
   return (
     <div className={cx("wrapper")} onClick={onClick}>
-      {!fullSize ? <div className={cx("title")}>Contacts</div> : null}
+      {showTitle ? <div className={cx("title")}>Contacts</div> : null}
       {list?.map((item, index) => (
         <div key={index}>
           <ChatItem

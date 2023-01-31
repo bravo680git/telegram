@@ -95,14 +95,14 @@
   font-size: 24px;
   position: absolute;
   bottom: -50px;
-  right: 20px;
+  right: 18px;
   visibility: hidden;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 
   &.show {
     visibility: visible;
-    bottom: 20px;
+    bottom: 36px;
   }
 }
 
@@ -352,5 +352,25 @@
     font-size: 16px;
     padding: 7px 0 11px;
     margin-left: 18px;
+  }
+}
+
+//new private chat
+.new-private-chat {
+  .body {
+    position: relative;
+
+    .add-btn {
+      width: 54px;
+      height: 54px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      color: var(--main-bg);
+      font-size: 24px;
+      position: absolute;
+      bottom: 36px;
+      right: 18px;
+      cursor: pointer;
+    }
   }
 }

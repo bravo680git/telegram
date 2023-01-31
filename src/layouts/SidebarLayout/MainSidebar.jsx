@@ -47,7 +47,7 @@ function MainSidebar({ actived }) {
           <div className={cx("seperate")}>
             <div></div>
           </div>
-          <ContactList list={contactsList} />
+          <ContactList list={contactsList} showTitle />
         </div>
         <div className={cx("icon")}>
           <Button onClick={handleBtnCLick} animationTime={800}>

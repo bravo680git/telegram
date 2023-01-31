@@ -23,6 +23,9 @@ function Layout() {
         <Sidebars.SearchSidebar actived={sidebar === "search"} />
         <Sidebars.NewChannelSidebar actived={sidebar === "newchannel"} />
         <Sidebars.NewGroupSidebar actived={sidebar === "newgroup"} />
+        <Sidebars.NewPrivateChatSidebar
+          actived={sidebar === "newprivatechat"}
+        />
       </SideBar>
       <Content>
         <Contents.MainContent actived={content === "main"} />

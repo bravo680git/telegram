@@ -16,6 +16,7 @@ const newMessageMenu = [
   {
     text: "New Private Chat",
     icon: FaRegUser,
+    control: "sidebar-newprivatechat",
   },
 ];
 
