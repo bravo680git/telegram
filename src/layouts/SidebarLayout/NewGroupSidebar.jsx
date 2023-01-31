@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import classnames from "classnames/bind";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
@@ -9,15 +9,19 @@ import AvatarItem from "components/AvatarItem";
 import ChatItem from "components/ChatItem";
 import Button from "components/Button";
 import { setSidebarControl } from "store/slices/controlSlices";
+import { useDebounce } from "hooks";
 import style from "./SidebarLayout.module.scss";
 
-import { contacts } from "utils/fakeData";
+import { contacts as fakeContacts } from "utils/fakeData";
 
 const cx = classnames.bind(style);
 
 function NewGroupSidebar({ actived }) {
   const dispatch = useDispatch();
   const [groupMembers, setGroupMembers] = useState([]);
+  const [search, setSearch] = useState("");
+  const searchDebounce = useDebounce(search, 200);
+  const [contacts, setContacts] = useState(fakeContacts);
 
   const handleBack = () => {
     dispatch(setSidebarControl("main"));
@@ -35,6 +39,20 @@ function NewGroupSidebar({ actived }) {
   const removeMember = (id) => {
     setGroupMembers(groupMembers.filter((grMem) => grMem.id !== id));
   };
+
+  useEffect(() => {
+    if (!actived) {
+      setGroupMembers([]);
+    }
+  }, [actived]);
+
+  useEffect(() => {
+    const regex = new RegExp(searchDebounce, "i");
+    const filterContact = fakeContacts.filter((contact) =>
+      regex.test(contact.name)
+    );
+    setContacts(filterContact);
+  }, [searchDebounce]);
 
   return (
     <SlideTransition actived={actived} enable>
@@ -63,7 +81,12 @@ function NewGroupSidebar({ actived }) {
                 <div className={cx("name")}>{member.name}</div>
               </div>
             ))}
-            <input type="text" placeholder="Add people..." />
+            <input
+              type="text"
+              placeholder="Add people..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
 
           <div className={cx("seperate")}>

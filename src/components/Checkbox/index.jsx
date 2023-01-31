@@ -5,10 +5,10 @@ import style from "./Checkbox.module.scss";
 
 const cx = classnames.bind(style);
 
-function Checkbox({ size = 24, checked, onCLick }) {
+function Checkbox({ size = 24, checked, onCLick, className }) {
   return (
     <div
-      className={cx("wrapper")}
+      className={cx("wrapper", className)}
       style={{ "--size": size + "px" }}
       onClick={onCLick}
     >

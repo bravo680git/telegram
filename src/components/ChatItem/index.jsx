@@ -1,9 +1,10 @@
+import { useSelector } from "react-redux";
 import classNames from "classnames/bind";
 import { HiOutlineBookmark } from "react-icons/hi";
-import { useSelector } from "react-redux";
 
-import AvatarItem from "../AvatarItem";
-import ClickAnimation from "../ClickAnimation";
+import AvatarItem from "components/AvatarItem";
+import Checkbox from "components/Checkbox";
+import ClickAnimation from "components/ClickAnimation";
 import style from "./ChatItem.module.scss";
 
 const cx = classNames.bind(style);
@@ -32,7 +33,9 @@ function ChatItem({
     >
       <ClickAnimation enable={animation}>
         <div className={cx("container")}>
-          {checkbox && <input type="checkbox" checked={checked} readOnly />}
+          {checkbox && (
+            <Checkbox className={cx("checkbox")} checked={checked} />
+          )}
           <div className={cx("chat-info")}>
             <div className={cx("avatar")}>
               <AvatarItem
