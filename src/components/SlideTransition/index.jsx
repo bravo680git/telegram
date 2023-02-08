@@ -1,18 +1,42 @@
 import { useTransition, animated } from "@react-spring/web";
 import { slideAnimationDuration } from "utils/constansts";
 
-function SlideTransition({ children, enable, actived, leftToRight, delay }) {
-  const style = leftToRight
-    ? {
-        from: { x: -218, position: "absolute" },
-        enter: { x: 0, position: "relative" },
-        leave: { x: -418, position: "absolute", opacity: 0.7 },
-      }
-    : {
-        from: { x: 218, position: "absolute" },
-        enter: { x: 0, position: "relative" },
-        leave: { x: 418, position: "absolute", opacity: 0.7 },
-      };
+function SlideTransition({
+  children,
+  enable,
+  actived,
+  direction = "R_L_R",
+  delay,
+}) {
+  const slideDismention = {
+    L_R_L: {
+      from: -218,
+      leave: -418,
+    },
+    R_L_R: {
+      from: 218,
+      leave: 418,
+    },
+    L_R_R: {
+      from: -218,
+      leave: 418,
+    },
+    R_L_L: {
+      from: 218,
+      leave: -418,
+    },
+  };
+
+  const style = {
+    from: { x: slideDismention[direction].from, position: "absolute" },
+    enter: { x: 0, position: "relative" },
+    leave: {
+      x: slideDismention[direction].leave,
+      position: "absolute",
+      opacity: 0.7,
+    },
+  };
+
   const transition = useTransition(actived, {
     ...style,
     delay: delay,
