@@ -19,6 +19,7 @@ function MenuItem({
   value,
   bottomText,
   group,
+  type,
 
   control,
   href,
@@ -79,7 +80,13 @@ function MenuItem({
 
   return (
     <div
-      className={cx("menu-item", { large, round, actived, range })}
+      className={cx("menu-item", {
+        large,
+        round,
+        actived,
+        range,
+        [type]: type,
+      })}
       onClick={!range ? handleCLick : () => {}}
       ref={ref}
     >

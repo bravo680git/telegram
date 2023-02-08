@@ -8,7 +8,7 @@ import { RiShareForwardLine, RiDeleteBin7Line } from "react-icons/ri";
 import { BiLockAlt } from "react-icons/bi";
 
 const CHAT_OPTIONS_MENUS = {
-  saveMessage: [
+  savedMessages: [
     {
       text: "Select Messages",
       icon: AiOutlineCheckCircle,

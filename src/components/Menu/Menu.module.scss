@@ -123,3 +123,14 @@
     background-color: var(--main-bg);
   }
 }
+
+.menu-item.danger {
+  .icon,
+  .text {
+    color: var(--main-red);
+  }
+
+  &:hover {
+    background-color: var(--sub-red);
+  }
+}

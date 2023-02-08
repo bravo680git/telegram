@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
+import ClickAnimation from "../ClickAnimation";
 import style from "./Menu.module.scss";
 import MenuItem from "./MenuItem";
-import ClickAnimation from "../ClickAnimation";
 
 const cx = classNames.bind(style);
 
@@ -15,6 +15,7 @@ function Menu({
   y,
   transformOrigin,
   delay = 0,
+  onMouseLeave,
 }) {
   const [firstRender, setFirstRender] = useState(true);
 
@@ -31,6 +32,7 @@ function Menu({
         firstRender,
       })}
       style={{ width, top: x, left: y, transformOrigin }}
+      onMouseLeave={onMouseLeave}
     >
       {menuItems.map((item, index) => (
         <ClickAnimation key={index}>
@@ -41,6 +43,7 @@ function Menu({
             currentChat={item.currentChat}
             href={item.href}
             delay={delay}
+            type={item.type}
           />
         </ClickAnimation>
       ))}
