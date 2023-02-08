@@ -1,81 +1,172 @@
 const setting = {
   info: {
-    phone: "+84 388070776",
-    name: "Quoc Nhien",
-    status: "online",
+    phone: { value: "+84 388070776" },
+    name: { value: "Quoc Nhien" },
+    status: { value: "online" },
   },
   notification: {
     private: {
-      notification: true,
-      preview: true,
+      notification: { value: true },
+      preview: { value: true },
     },
     group: {
-      notification: true,
-      preview: true,
+      notification: { value: true },
+      preview: { value: true },
     },
     channel: {
-      notification: true,
-      preview: true,
+      notification: { value: true },
+      preview: { value: true },
     },
     other: {
-      join: true,
-      sound: true,
+      join: { value: true },
+      sound: { value: true },
     },
   },
   data: {
     download: {
-      auto: true,
-      photo: "On in all chats",
-      video: "On in all chats",
-      file: "Up to 3MB in all chats",
+      auto: { value: true },
+      photo: {
+        value: "Contacts",
+        autoDownload: {
+          contacts: { value: true },
+          private: { value: false },
+          group: { value: false },
+          channel: { value: false },
+        },
+      },
+      video: {
+        value: "On in all chats",
+        autoDownload: {
+          contacts: { value: true },
+          private: { value: true },
+          group: { value: true },
+          channel: { value: true },
+        },
+      },
+      file: {
+        value: "Up to 3MB in all chats",
+        autoDownload: {
+          contacts: { value: true },
+          private: { value: true },
+          group: { value: true },
+          channel: { value: true },
+          maxSize: { value: 3 },
+        },
+      },
     },
     autoPlay: {
-      gif: true,
-      video: true,
+      gif: { value: true },
+      video: { value: true },
     },
   },
   security: {
     security: {
-      block: "none",
-      twoStep: "off",
-      session: "3 devices",
+      block: { value: "none" },
+      twoStep: { value: "off" },
+      session: { value: "3 devices" },
     },
     privacy: {
-      phoneNumber: "My Contacts",
-      lastSeen: "Everybody",
-      profile: "Everybody",
-      call: "Everybody",
-      addLink: "Everybody",
-      addGroup: "Everybody",
+      phoneNumber: {
+        value: "My Contacts",
+        see: {
+          everybody: { value: false },
+          mycontacts: { value: true },
+          nobody: { value: false },
+        },
+        exceptions: {
+          never: { value: "Add users" },
+          always: { value: "Add users" },
+        },
+      },
+      lastSeen: {
+        value: "Everybody",
+        see: {
+          everybody: { value: true },
+          mycontacts: { value: false },
+          nobody: { value: false },
+        },
+        exceptions: {
+          never: { value: "Add users" },
+        },
+      },
+      profile: {
+        value: "Everybody",
+        see: {
+          everybody: { value: true },
+          mycontacts: { value: false },
+        },
+        exceptions: {
+          never: { value: "Add users" },
+        },
+      },
+      call: {
+        value: "My Contacts",
+        cancall: {
+          everybody: { value: false },
+          mycontacts: { value: true },
+          nobody: { value: false },
+        },
+        exceptions: {
+          never: { value: "Add users" },
+        },
+        peertopeer: {
+          everybody: { value: false },
+          mycontacts: { value: true },
+          nobody: { value: false },
+        },
+      },
+      addLink: {
+        value: "Everybody",
+        add: {
+          everybody: { value: true },
+          mycontacts: { value: false },
+          nobody: { value: false },
+        },
+        exceptions: {
+          never: { value: "Add users" },
+        },
+      },
+      addGroup: {
+        value: "My Contacts",
+        add: {
+          everybody: { value: false },
+          mycontacts: { value: true },
+          nobody: { value: false },
+        },
+        exceptions: {
+          never: { value: "Add users" },
+          always: { value: "Add users" },
+        },
+      },
     },
     sensitive: {
-      disableFilter: true,
+      disableFilter: { value: true },
     },
     chat: {},
   },
   general: {
     setting: {
-      size: 16,
-      background: null,
-      animation: true,
+      size: { value: 16 },
+      background: { value: null },
+      animation: { value: true },
     },
     keyboard: {
-      enter: true,
-      ctrlEnter: false,
+      enter: { value: true },
+      ctrlEnter: { value: false },
     },
     time: {
-      half: true,
-      full: false,
+      half: { value: true },
+      full: { value: false },
     },
     emoji: {
-      suggest: true,
-      large: true,
+      suggest: { value: true },
+      large: { value: true },
     },
     sticker: {
-      quick: true,
-      suggest: true,
-      loop: true,
-      cherry: true,
+      quick: { value: true },
+      suggest: { value: true },
+      loop: { value: true },
+      cherry: { value: true },
     },
   },
   folder: {},
@@ -89,10 +180,10 @@ const setting = {
   language: {
     rightText: "English",
     list: {
-      en: true,
-      be: false,
-      ca: false,
-      du: false,
+      en: { value: true },
+      be: { value: false },
+      ca: { value: false },
+      du: { value: false },
     },
   },
 };

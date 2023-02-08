@@ -1,4 +1,4 @@
-import { FiDatabase, FiUserX } from "react-icons/fi";
+import { FiDatabase, FiUserX, FiUserCheck } from "react-icons/fi";
 import { BiLockAlt, BiDevices } from "react-icons/bi";
 import { VscGear } from "react-icons/vsc";
 import {
@@ -92,7 +92,7 @@ const settingItems = [
                 sub: [
                   {
                     text: "Contacts",
-                    key: "contact",
+                    key: "contacts",
                     checkbox: true,
                   },
                   {
@@ -235,26 +235,257 @@ const settingItems = [
           {
             text: "Who can see my phone number?",
             key: "phoneNumber",
+            sub: [
+              {
+                title: "Who can see my phone number?",
+                key: "see",
+                sub: [
+                  {
+                    text: "Everybody",
+                    key: "everybody",
+                    radio: true,
+                  },
+                  {
+                    text: "My Contacts",
+                    key: "mycontacts",
+                    radio: true,
+                  },
+                  {
+                    text: "Nobody",
+                    key: "nobody",
+                    radio: true,
+                  },
+                ],
+              },
+              {
+                title: "Exceptions",
+                key: "exceptions",
+                sub: [
+                  {
+                    text: "Never Share With",
+                    key: "never",
+                    icon: FiUserX,
+                  },
+                  {
+                    text: "Always Share With",
+                    key: "always",
+                    icon: FiUserCheck,
+                  },
+                ],
+              },
+            ],
           },
           {
             text: "Who can see your Last Seen time?",
             key: "lastSeen",
+            sub: [
+              {
+                title: "Who can see your Last Seen time?",
+                key: "see",
+                sub: [
+                  {
+                    text: "Everybody",
+                    key: "everybody",
+                    radio: true,
+                  },
+                  {
+                    text: "My Contacts",
+                    key: "mycontacts",
+                    radio: true,
+                  },
+                  {
+                    text: "Nobody",
+                    key: "nobody",
+                    radio: true,
+                  },
+                ],
+              },
+              {
+                title: "Exceptions",
+                key: "exceptions",
+                sub: [
+                  {
+                    text: "Never Share With",
+                    key: "never",
+                    icon: FiUserX,
+                  },
+                ],
+              },
+            ],
           },
           {
             text: "Who can see my profile photos & video?",
             key: "profile",
+            sub: [
+              {
+                title: "Who can see my profile photos & video?",
+                key: "see",
+                sub: [
+                  {
+                    text: "Everybody",
+                    key: "everybody",
+                    radio: true,
+                  },
+                  {
+                    text: "My Contacts",
+                    key: "mycontacts",
+                    radio: true,
+                  },
+                ],
+              },
+              {
+                title: "Exceptions",
+                key: "exceptions",
+                sub: [
+                  {
+                    text: "Never Share With",
+                    key: "never",
+                    icon: FiUserX,
+                  },
+                ],
+              },
+            ],
           },
           {
             text: "Who can call me?",
             key: "call",
+            sub: [
+              {
+                title: "Who can call me?",
+                key: "cancall",
+                sub: [
+                  {
+                    text: "Everybody",
+                    key: "everybody",
+                    radio: true,
+                  },
+                  {
+                    text: "My Contacts",
+                    key: "mycontacts",
+                    radio: true,
+                  },
+                  {
+                    text: "Nobody",
+                    key: "nobody",
+                    radio: true,
+                  },
+                ],
+              },
+              {
+                title: "Exceptions",
+                key: "exceptions",
+                sub: [
+                  {
+                    text: "Never Allow",
+                    key: "never",
+                    icon: FiUserX,
+                  },
+                ],
+              },
+              {
+                title: "Peer to peer",
+                key: "peertopeer",
+                sub: [
+                  {
+                    text: "Everybody",
+                    key: "everybody",
+                    radio: true,
+                  },
+                  {
+                    text: "My Contacts",
+                    key: "mycontacts",
+                    radio: true,
+                  },
+                  {
+                    text: "Nobody",
+                    key: "nobody",
+                    radio: true,
+                  },
+                ],
+              },
+            ],
           },
           {
             text: "Who can add a link to my account when forwarding my message?",
             key: "addLink",
+            sub: [
+              {
+                title:
+                  "Who can add a link to my account when forwarding my message?",
+                key: "add",
+                sub: [
+                  {
+                    text: "Everybody",
+                    key: "everybody",
+                    radio: true,
+                  },
+                  {
+                    text: "My Contacts",
+                    key: "mycontacts",
+                    radio: true,
+                  },
+                  {
+                    text: "Nobody",
+                    key: "nobody",
+                    radio: true,
+                  },
+                ],
+              },
+              {
+                title: "Exceptions",
+                key: "exceptions",
+                sub: [
+                  {
+                    text: "Never Allow",
+                    key: "never",
+                    icon: FiUserX,
+                  },
+                ],
+              },
+            ],
           },
           {
             text: "Who can add me to group chats?",
             key: "addGroup",
+            sub: [
+              {
+                title: "Who can add me to group chats?",
+                key: "add",
+                sub: [
+                  {
+                    text: "Everybody",
+                    key: "everybody",
+                    radio: true,
+                  },
+                  {
+                    text: "My Contacts",
+                    key: "mycontacts",
+                    radio: true,
+                  },
+                  {
+                    text: "Nobody",
+                    key: "nobody",
+                    radio: true,
+                  },
+                ],
+              },
+              {
+                title: "Exceptions",
+                key: "exceptions",
+                sub: [
+                  {
+                    text: "Never Allow",
+                    key: "never",
+                    icon: FiUserX,
+                  },
+                  {
+                    text: "Always Allow",
+                    key: "always",
+                    icon: FiUserX,
+                  },
+                ],
+              },
+            ],
           },
         ],
       },

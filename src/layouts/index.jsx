@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import classNames from "classnames/bind";
 import SideBar from "./Sidebar";
 import Content from "./Content";
@@ -11,6 +12,10 @@ const cx = classNames.bind(style);
 
 function Layout() {
   const { sidebar, content } = useSelector((state) => state.control);
+
+  useEffect(() => {
+    document.querySelector("html").setAttribute("data-theme", "light");
+  }, []);
 
   return (
     <div className={cx("wrapper")}>

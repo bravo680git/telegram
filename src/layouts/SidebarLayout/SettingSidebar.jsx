@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import classNames from "classnames/bind";
 import { AiOutlineArrowLeft, AiOutlinePhone } from "react-icons/ai";
@@ -16,10 +16,10 @@ import { setting } from "utils/fakeData";
 import { setSidebarControl } from "store/slices/controlSlices";
 import settingItems from "utils/settingsSidebar";
 import { clickAnimationDuration } from "utils/constansts";
+import { getSettingValue } from "utils/functions";
 import style from "./SidebarLayout.module.scss";
 
 const cx = classNames.bind(style);
-
 function SettingSidebar({ actived }) {
   const dispatch = useDispatch();
   const notifyTextShowTime = 3000;
@@ -27,6 +27,8 @@ function SettingSidebar({ actived }) {
   const [headerTitle, setHeaderTitle] = useState("Settings");
   const [notifyTextShow, setNotifyTextShow] = useState(false);
   const [mainKey, setMainKey] = useState();
+  const [keys, setKeys] = useState([]);
+  const menuLength = useRef(1);
 
   const handleBack = () => {
     if (menuItems.length === 1) {
@@ -34,19 +36,21 @@ function SettingSidebar({ actived }) {
     } else {
       setMenuItems([...menuItems.slice(0, menuItems.length - 1)]);
       setHeaderTitle("Settings");
+      setKeys([...keys.slice(0, keys.length - 1)]);
     }
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(setting.info.phone);
+    navigator.clipboard.writeText(setting.info.phone.value);
     setNotifyTextShow(true);
   };
 
-  const handleClick = (item) => {
+  const handleClick = (item, keyArr) => {
     if (item.sub) {
       setMenuItems([...menuItems, item.sub]);
       setHeaderTitle(item.text);
       setMainKey(item.key);
+      setKeys([...keys, keyArr]);
     }
   };
 
@@ -56,8 +60,22 @@ function SettingSidebar({ actived }) {
     return () => clearTimeout(tId);
   }, [notifyTextShow]);
 
+  useEffect(() => {
+    menuLength.current = menuItems.length;
+  }, [menuItems]);
+
   return (
-    <SlideTransition actived={actived && menuItems.length} enable>
+    <SlideTransition
+      actived={actived && menuItems.length}
+      enable
+      direction={
+        menuLength.current > 1
+          ? menuItems.length < menuLength.current
+            ? "L_R_R"
+            : "R_L_L"
+          : "R_L_R"
+      }
+    >
       <div className={cx("setting-sidebar")}>
         <div className={cx("header")}>
           <div className={cx("back")} onClick={handleBack}>
@@ -84,10 +102,12 @@ function SettingSidebar({ actived }) {
               <div className={cx("info")}>
                 <div className={cx("profile")}>
                   <div className={cx("avatar")}>
-                    <AvatarItem name={setting.info.name} />
+                    <AvatarItem name={setting.info.name.value} />
                   </div>
-                  <div className={cx("name")}>{setting.info.name}</div>
-                  <div className={cx("status")}>{setting.info.status}</div>
+                  <div className={cx("name")}>{setting.info.name.value}</div>
+                  <div className={cx("status")}>
+                    {setting.info.status.value}
+                  </div>
                 </div>
                 <div className={cx("phone")}>
                   <ClickAnimation>
@@ -96,7 +116,7 @@ function SettingSidebar({ actived }) {
                       large
                       round
                       Icon={AiOutlinePhone}
-                      text={setting.info.phone}
+                      text={setting.info.phone.value}
                       onClick={copyToClipboard}
                     />
                   </ClickAnimation>
@@ -118,8 +138,8 @@ function SettingSidebar({ actived }) {
                       round
                       Icon={item.icon}
                       text={item.text}
-                      onClick={() => handleClick(item)}
-                      value={setting[item.key]}
+                      onClick={() => handleClick(item, item.key)}
+                      value={setting[item.key].value}
                       rightText={setting[item.key].rightText}
                       delay={clickAnimationDuration}
                     />
@@ -135,7 +155,12 @@ function SettingSidebar({ actived }) {
                     <ClickAnimation duration={800} key={index}>
                       <MenuItem
                         text={item.text}
-                        value={setting[mainKey][group.key][item.key]}
+                        value={getSettingValue(
+                          keys,
+                          setting,
+                          group.key,
+                          item.key
+                        )}
                         group={group.title || mainKey}
                         Icon={item.icon}
                         checkbox={item.checkbox}
@@ -144,7 +169,7 @@ function SettingSidebar({ actived }) {
                         large
                         round
                         delay={0}
-                        onClick={() => handleClick(item)}
+                        onClick={() => handleClick(item, [group.key, item.key])}
                       />
                     </ClickAnimation>
                   ))}

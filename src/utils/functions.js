@@ -6,4 +6,14 @@ const clickAnimationSolving = (e, ref, animationTime) => {
   ref.current.style.setProperty("--animation-time", animationTime * 2 + "ms");
 };
 
-export { clickAnimationSolving };
+const getSettingValue = (prevKeys = [], setting, ...keys) => {
+  let lastObj = setting;
+  const allKeys = prevKeys.flat(2).concat(keys);
+  for (let key of allKeys) {
+    lastObj = lastObj[key];
+  }
+
+  return lastObj?.value;
+};
+
+export { clickAnimationSolving, getSettingValue };

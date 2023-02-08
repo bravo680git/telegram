@@ -35,7 +35,7 @@ function MainSidebar({ actived }) {
   }, [closeMenu]);
 
   return (
-    <SlideTransition enable={!firstRender} actived={actived} leftToRight>
+    <SlideTransition enable={!firstRender} actived={actived} direction="L_R_L">
       <div
         className={cx("main-sidebar")}
         onMouseLeave={() => setCloseMenu((prev) => prev + 1)}

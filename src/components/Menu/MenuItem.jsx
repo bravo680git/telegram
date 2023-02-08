@@ -38,7 +38,7 @@ function MenuItem({
   const [actived, setActived] = useState(false);
   const [checked, setChecked] = useState(value);
   const [subText, setSubText] = useState(bottomText);
-  const [rangeValue, setRangeValue] = useState(12);
+  const [rangeValue, setRangeValue] = useState(range ? value : 12);
   const ref = useRef();
 
   const handleChangeControl = () => {
