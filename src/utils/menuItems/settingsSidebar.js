@@ -10,7 +10,7 @@ import { MdOutlineLanguage, MdNotificationsNone } from "react-icons/md";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import { BsImage } from "react-icons/bs";
 
-const settingItems = [
+const MENU_ITEMS = [
   //////////////////////////////////////////////////////////////////////
   //notification
   //////////////////////////////////////////////////////////////////////
@@ -696,4 +696,4 @@ const settingItems = [
   },
 ];
 
-export default settingItems;
+export default MENU_ITEMS;

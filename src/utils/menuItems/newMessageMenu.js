@@ -2,7 +2,7 @@ import { FaRegUser } from "react-icons/fa";
 import { RiGroupLine } from "react-icons/ri";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 
-const newMessageMenu = [
+const MENU_ITEMS = [
   {
     text: "New Channel",
     icon: HiOutlineSpeakerphone,
@@ -20,4 +20,4 @@ const newMessageMenu = [
   },
 ];
 
-export default newMessageMenu;
+export default MENU_ITEMS;

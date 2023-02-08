@@ -4,7 +4,7 @@ import { FaRegUser } from "react-icons/fa";
 import { MdAnimation } from "react-icons/md";
 import { VscGear } from "react-icons/vsc";
 
-const menuItems = [
+const MENU_ITEMS = [
   {
     text: "Saved Messages",
     icon: BsBookmark,
@@ -49,4 +49,4 @@ const menuItems = [
   },
 ];
 
-export default menuItems;
+export default MENU_ITEMS;

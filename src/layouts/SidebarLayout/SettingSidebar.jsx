@@ -14,7 +14,7 @@ import NotifyText from "components/NotifyText";
 import ClickAnimation from "components/ClickAnimation";
 import { setting } from "utils/fakeData";
 import { setSidebarControl } from "store/slices/controlSlices";
-import settingItems from "utils/settingsSidebar";
+import { SETTING_SIDEBAR_MENU_ITEMS } from "utils/menuItems";
 import { clickAnimationDuration } from "utils/constansts";
 import { getSettingValue } from "utils/functions";
 import style from "./SidebarLayout.module.scss";
@@ -23,7 +23,7 @@ const cx = classNames.bind(style);
 function SettingSidebar({ actived }) {
   const dispatch = useDispatch();
   const notifyTextShowTime = 3000;
-  const [menuItems, setMenuItems] = useState([settingItems]);
+  const [menuItems, setMenuItems] = useState([SETTING_SIDEBAR_MENU_ITEMS]);
   const [headerTitle, setHeaderTitle] = useState("Settings");
   const [notifyTextShow, setNotifyTextShow] = useState(false);
   const [mainKey, setMainKey] = useState();

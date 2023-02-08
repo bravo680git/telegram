@@ -8,7 +8,7 @@ import Button from "components/Button";
 import Menu from "components/Menu";
 import { slideAnimationDuration } from "utils/constansts";
 import { setSidebarControl } from "store/slices/controlSlices";
-import menuItems from "utils/mainMenuItemsList";
+import { MAIN_MENU_ITEMS } from "utils/menuItems";
 import style from "./SidebarHeader.module.scss";
 
 const cx = classNames.bind(style);
@@ -65,7 +65,7 @@ function SidebarHeader({ closeMenu, focused }) {
 
         <Menu
           actived={openMenu}
-          menuItems={menuItems}
+          menuItems={MAIN_MENU_ITEMS}
           footer="Telegram WebK 1.4.3(175)"
           width={300}
           x={40}

@@ -9,10 +9,10 @@ import ContactList from "components/ContactList";
 import { SidebarHeader } from "components/Header";
 import Menu from "components/Menu";
 import Button from "components/Button";
-import newMessageMenu from "utils/newMessageMenu";
 import SlideTransition from "components/SlideTransition";
 import style from "./SidebarLayout.module.scss";
 
+import { MAIN_MENU_ITEMS, NEW_MESSAGE_MENU } from "utils/menuItems";
 import { chats, contacts } from "utils/fakeData";
 
 const cx = classNames.bind(style);
@@ -54,7 +54,7 @@ function MainSidebar({ actived }) {
             {isActived ? <AiOutlineClose /> : <HiPencil />}
           </Button>
           <Menu
-            menuItems={newMessageMenu}
+            menuItems={NEW_MESSAGE_MENU}
             actived={isActived}
             width={200}
             x={-180}
