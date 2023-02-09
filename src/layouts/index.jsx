@@ -42,6 +42,9 @@ function Layout() {
         <RightSidebars.ProfileSidebarLayout
           actived={rightSidebar === "profile"}
         />
+        <RightSidebars.EditProfileSidebarLayout
+          actived={rightSidebar === "editprofile"}
+        />
       </SideBar>
     </div>
   );

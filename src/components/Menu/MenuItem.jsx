@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import classNames from "classnames/bind";
 
 import SwitchBtn from "components/Switch";
+import Checkbox from "components/Checkbox";
 import {
   setSidebarControl,
   setContentControl,
@@ -98,12 +99,7 @@ function MenuItem({
       ref={ref}
     >
       {checkbox ? (
-        <input
-          type="checkbox"
-          className={cx("checkbox")}
-          checked={checked}
-          readOnly
-        />
+        <Checkbox checked={checked} className={cx("checkbox")} size={20} />
       ) : radio ? (
         <input
           type="radio"
