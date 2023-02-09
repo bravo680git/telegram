@@ -9,7 +9,7 @@ const MENU_ITEMS = [
     text: "Saved Messages",
     icon: BsBookmark,
     currentChat: {
-      name: "Saved Messaged",
+      name: "Saved Messages",
       id: "savedMessages",
     },
   },

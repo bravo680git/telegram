@@ -19,10 +19,15 @@
     justify-content: center;
   }
 
+  svg {
+    font-size: var(--font-size);
+  }
+
   div {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    font-size: var(--font-size);
   }
 }

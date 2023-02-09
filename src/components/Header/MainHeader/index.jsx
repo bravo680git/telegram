@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import classNames from "classnames/bind";
 import { AiOutlinePhone, AiOutlineSearch } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -8,6 +8,7 @@ import Button from "components/Button";
 import ChatItem from "components/ChatItem";
 import Menu from "components/Menu";
 import { CHAT_OPTIONS_MENUS } from "utils/menuItems";
+import { setRightSidebarControl } from "store/slices/controlSlices";
 import style from "./MainHeader.module.scss";
 
 const cx = classNames.bind(style);
@@ -15,12 +16,17 @@ const cx = classNames.bind(style);
 function MainHeader({ data }) {
   const [openMenu, setOpenMenu] = useState(false);
   const currentChatId = useSelector((state) => state.chat.currentChat?.id);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setRightSidebarControl("profile"));
+  };
 
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <div className={cx("chat-item")}>
-          <ChatItem data={data} animation={false} />
+          <ChatItem data={data} animation={false} onClick={handleClick} />
         </div>
         <div className={cx("utils")}>
           <div>

@@ -4,7 +4,7 @@ import style from "./AvartarItem.module.scss";
 
 const cx = classNames.bind(style);
 
-function AvatarItem({ name, src, Icon }) {
+function AvatarItem({ name = "", src, Icon, fontSize = 16 }) {
   const [fallback, setFallback] = useState(src);
 
   const colors = [
@@ -21,6 +21,7 @@ function AvatarItem({ name, src, Icon }) {
         <div
           style={{
             background: colors[name.length % 3],
+            "--font-size": fontSize + "px",
           }}
         >
           {Icon ? (

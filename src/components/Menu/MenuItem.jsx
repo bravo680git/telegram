@@ -2,9 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import classNames from "classnames/bind";
 
+import SwitchBtn from "components/Switch";
 import {
   setSidebarControl,
   setContentControl,
+  setRightSidebarControl,
 } from "store/slices/controlSlices";
 import { setCurrentChat } from "store/slices/chatSlice";
 import style from "./Menu.module.scss";
@@ -29,6 +31,7 @@ function MenuItem({
   range,
   radio,
   checkbox,
+  switchBtn,
 
   round,
   large,
@@ -52,6 +55,10 @@ function MenuItem({
         dispatch(setContentControl(control.split("-")[1]));
         break;
 
+      case "rightsidebar":
+        dispatch(setRightSidebarControl(control.split("-")[1]));
+        break;
+
       default:
         console.log("Invalid component type");
         break;
@@ -65,7 +72,7 @@ function MenuItem({
       if (control) return handleChangeControl();
       if (currentChat) return dispatch(setCurrentChat(currentChat));
       if (onClick) onClick();
-      if (checkbox) setChecked((state) => !state);
+      if (checkbox || switchBtn) setChecked((state) => !state);
       if (radio) setChecked(true);
     }, delay);
   };
@@ -121,6 +128,11 @@ function MenuItem({
         <div className={cx("text")}>{text}</div>
         <div className={cx("right-text")}>{range ? rangeValue : rightText}</div>
         {subText && <div className={cx("bottom-text")}>{subText}</div>}
+        {switchBtn && (
+          <div className={cx("switch-btn")}>
+            <SwitchBtn width={30} height={20} actived={checked} />
+          </div>
+        )}
       </div>
     </div>
   );

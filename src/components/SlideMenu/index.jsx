@@ -4,8 +4,15 @@ import style from "./SlideMenu.module.scss";
 
 const cx = classNames.bind(style);
 
-function SlideMenu({ btnList, tickSize = 10 }) {
+function SlideMenu({ btnList, tickSize = 10, onClick, setActivedItem }) {
   const [activedIndex, setActiveIndex] = useState(0);
+
+  const handleClickMenu = (i) => {
+    setActiveIndex(i);
+    if (setActivedItem) {
+      setActivedItem(btnList[i]);
+    }
+  };
 
   return (
     <div className={cx("wrapper")}>
@@ -18,19 +25,18 @@ function SlideMenu({ btnList, tickSize = 10 }) {
             "%",
           "--tick-size": tickSize + "%",
         }}
+        onClick={onClick}
       >
         {btnList.map((item, index) => (
           <button
             key={index}
             className={cx("item", { actived: activedIndex === index })}
-            onClick={() => setActiveIndex(index)}
+            onClick={() => handleClickMenu(index)}
           >
             {item}
           </button>
         ))}
       </div>
-
-      <div className={cx("result")}></div>
     </div>
   );
 }

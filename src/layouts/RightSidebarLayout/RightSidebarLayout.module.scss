@@ -1,0 +1,99 @@
+//common
+
+.seperate {
+  height: 12px;
+  margin: 8px 0 16px -10px;
+  width: calc(100% + 20px);
+  background-color: var(--sub-bg);
+
+  div {
+    height: 100%;
+    width: 100%;
+
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 0) 94%,
+      rgba(0, 0, 0, 0.06) 100%
+    );
+  }
+}
+
+//profile sidebar
+
+.profile-sidebar {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100%;
+
+  &:hover {
+    overflow-y: overlay;
+  }
+
+  .header {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--main-bg);
+
+    .back-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .title {
+      padding-left: 24px;
+      font-size: 1.26rem;
+      font-weight: 600;
+      color: var(--main-txt);
+      width: 308px;
+    }
+
+    .edit-btn {
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+  }
+
+  .body {
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+      }
+
+      .name {
+        font-size: 1.26rem;
+        font-weight: 600;
+        color: var(--main-txt);
+      }
+
+      .status {
+        font-size: 0.96rem;
+        color: var(--sub-txt);
+        margin-bottom: 18px;
+      }
+    }
+
+    .slide-menu {
+      height: calc(100vh - 56px);
+    }
+  }
+}

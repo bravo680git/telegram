@@ -7,11 +7,14 @@ import { useSelector } from "react-redux";
 
 import * as Sidebars from "./SidebarLayout";
 import * as Contents from "./ContentLayout";
+import * as RightSidebars from "./RightSidebarLayout";
 
 const cx = classNames.bind(style);
 
 function Layout() {
-  const { sidebar, content } = useSelector((state) => state.control);
+  const { sidebar, content, rightSidebar } = useSelector(
+    (state) => state.control
+  );
 
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", "light");
@@ -19,7 +22,7 @@ function Layout() {
 
   return (
     <div className={cx("wrapper")}>
-      <SideBar>
+      <SideBar actived>
         <Sidebars.MainSidebar
           actived={sidebar === "main" || sidebar === "start"}
         />
@@ -35,6 +38,11 @@ function Layout() {
       <Content>
         <Contents.MainContent actived={content === "main"} />
       </Content>
+      <SideBar actived={rightSidebar}>
+        <RightSidebars.ProfileSidebarLayout
+          actived={rightSidebar === "profile"}
+        />
+      </SideBar>
     </div>
   );
 }

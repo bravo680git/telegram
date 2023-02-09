@@ -1,4 +1,6 @@
 .wrapper {
+  position: relative;
+  height: 48px;
 }
 
 .slide-menu {
@@ -13,7 +15,7 @@
   &::after {
     content: "";
     position: absolute;
-    top: 106px;
+    top: 44px;
     left: var(--left);
     width: var(--tick-size);
     height: 3px;
@@ -43,7 +45,6 @@
 }
 
 .result {
-  height: 500px;
 }
 
 @keyframes fade {

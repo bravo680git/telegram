@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   sidebar: "start",
   content: "main",
+  rightSidebar: null,
 };
 
 const controlSlice = createSlice({
@@ -17,8 +18,13 @@ const controlSlice = createSlice({
       ...state,
       content: action.payload,
     }),
+    setRightSidebarControl: (state, action) => ({
+      ...state,
+      rightSidebar: action.payload,
+    }),
   },
 });
 
 export default controlSlice.reducer;
-export const { setSidebarControl, setContentControl } = controlSlice.actions;
+export const { setSidebarControl, setContentControl, setRightSidebarControl } =
+  controlSlice.actions;

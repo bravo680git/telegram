@@ -7,13 +7,18 @@
 }
 
 .sidebar {
-  width: 420px;
+  width: 0;
   height: 100vh;
   background-color: var(--main-bg);
   border: var(--main-border);
   border-top: none;
   position: relative;
   overflow: hidden;
+  transition: width 0.3s;
+}
+
+.sidebar.actived {
+  width: 420px;
 }
 
 .content {
@@ -23,4 +28,5 @@
   border-top: none;
   background: url("../assets/images/background.jpg");
   background-size: cover;
+  transition: width 0.3s;
 }

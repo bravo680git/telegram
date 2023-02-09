@@ -3,8 +3,8 @@ import style from "./Layout.module.scss";
 
 const cx = classNames.bind(style);
 
-function SideBar({ children }) {
-  return <aside className={cx("sidebar")}>{children}</aside>;
+function SideBar({ children, actived }) {
+  return <aside className={cx("sidebar", { actived })}>{children}</aside>;
 }
 
 export default SideBar;

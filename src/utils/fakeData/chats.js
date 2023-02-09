@@ -12,7 +12,7 @@ const chats = [
     date: "May 10",
   },
   {
-    name: "Saved Mesages",
+    name: "Saved Messages",
     id: "savedMessages",
     status: "New mesages!",
   },
