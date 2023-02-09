@@ -1,0 +1,30 @@
+.container {
+  width: var(--w);
+  height: calc(0.8 * var(--h));
+  background-color: var(--sub-hover);
+  border-radius: 50px;
+  position: relative;
+
+  div {
+    height: var(--h);
+    width: var(--h);
+    border-radius: 50%;
+    border: 2px solid var(--sub-hover);
+    background-color: var(--main-bg);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.actived {
+    background-color: var(--primary-color);
+
+    div {
+      border-color: var(--primary-color);
+      left: unset;
+      right: 0;
+    }
+  }
+}
