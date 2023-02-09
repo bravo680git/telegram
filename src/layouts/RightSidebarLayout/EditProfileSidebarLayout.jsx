@@ -44,7 +44,7 @@ function EditProfileSidebarLayout({ actived }) {
   }, [currentChat]);
 
   return (
-    <SlideTransition enable actived={actived} direction="R_L_L">
+    <SlideTransition enable actived={actived} direction="R_L_R">
       <div className={cx("edit-profile")}>
         <div className={cx("header")}>
           <div className={cx("back-btn")}>

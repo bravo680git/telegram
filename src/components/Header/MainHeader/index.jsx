@@ -18,15 +18,23 @@ function MainHeader({ data }) {
   const currentChatId = useSelector((state) => state.chat.currentChat?.id);
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleClickChatItem = () => {
     dispatch(setRightSidebarControl("profile"));
+  };
+
+  const handelClickSearchBtn = () => {
+    dispatch(setRightSidebarControl("search"));
   };
 
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <div className={cx("chat-item")}>
-          <ChatItem data={data} animation={false} onClick={handleClick} />
+          <ChatItem
+            data={data}
+            animation={false}
+            onClick={handleClickChatItem}
+          />
         </div>
         <div className={cx("utils")}>
           <div>
@@ -35,7 +43,7 @@ function MainHeader({ data }) {
             </Button>
           </div>
           <div>
-            <Button>
+            <Button onClick={handelClickSearchBtn}>
               <AiOutlineSearch />
             </Button>
           </div>

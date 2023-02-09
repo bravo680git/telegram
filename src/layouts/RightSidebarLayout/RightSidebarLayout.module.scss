@@ -139,3 +139,51 @@
     }
   }
 }
+
+//search sidebar
+
+.search-sidebar {
+  .header {
+    .search {
+      flex: 9;
+      display: flex;
+      align-items: center;
+      outline: var(--main-border);
+      border: 2px solid var(--main-bg);
+      border-radius: 50px;
+      margin-left: 4px;
+
+      .icon {
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        color: var(--sub-txt);
+      }
+
+      .input {
+        height: 38px;
+        width: 100%;
+        border-radius: 50px;
+        font-size: 1rem;
+        caret-color: var(--primary-color);
+      }
+
+      &:focus-within {
+        border: var(--sub-border);
+
+        .icon {
+          color: var(--primary-color);
+        }
+      }
+    }
+
+    .calendar {
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+      margin-left: 12px;
+    }
+  }
+}

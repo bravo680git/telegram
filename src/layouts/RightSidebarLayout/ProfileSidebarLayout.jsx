@@ -66,7 +66,7 @@ function ProfileSidebarLayout({ actived }) {
   }, [notifyTextShow]);
 
   return (
-    <SlideTransition enable actived={actived} direction="R_L_L">
+    <SlideTransition enable actived={actived} direction="R_L_R">
       <div
         className={cx("profile-sidebar")}
         onScroll={handleScroll}
