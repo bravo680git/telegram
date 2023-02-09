@@ -7,6 +7,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import Button from "components/Button";
 import ChatItem from "components/ChatItem";
 import Menu from "components/Menu";
+import CallPopup from "components/CallPopup";
 import { CHAT_OPTIONS_MENUS } from "utils/menuItems";
 import { setRightSidebarControl } from "store/slices/controlSlices";
 import style from "./MainHeader.module.scss";
@@ -15,6 +16,7 @@ const cx = classNames.bind(style);
 
 function MainHeader({ data }) {
   const [openMenu, setOpenMenu] = useState(false);
+  const [showCallPopup, setShowCallPopup] = useState(false);
   const currentChatId = useSelector((state) => state.chat.currentChat?.id);
   const dispatch = useDispatch();
 
@@ -38,7 +40,7 @@ function MainHeader({ data }) {
         </div>
         <div className={cx("utils")}>
           <div>
-            <Button>
+            <Button onClick={() => setShowCallPopup(true)}>
               <AiOutlinePhone />
             </Button>
           </div>
@@ -68,6 +70,8 @@ function MainHeader({ data }) {
           </div>
         </div>
       </div>
+
+      {showCallPopup && <CallPopup onClose={() => setShowCallPopup(false)} />}
     </div>
   );
 }
