@@ -18,7 +18,25 @@ function MainHeader({ data }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [showCallPopup, setShowCallPopup] = useState(false);
   const currentChatId = useSelector((state) => state.chat.currentChat?.id);
+  const canSelectMessages = useSelector(
+    (state) => state.control.selectMessages
+  );
   const dispatch = useDispatch();
+
+  const chatOptionsMenu =
+    CHAT_OPTIONS_MENUS[
+      currentChatId === "savedMessages" ? "savedMessages" : "normal"
+    ];
+
+  chatOptionsMenu.forEach((item) => {
+    if (item.text === "Select Messages" || item.text === "Clear Selections") {
+      if (canSelectMessages) {
+        item.text = "Clear Selections";
+      } else {
+        item.text = "Select Messages";
+      }
+    }
+  });
 
   const handleClickChatItem = () => {
     dispatch(setRightSidebarControl("profile"));
@@ -66,6 +84,7 @@ function MainHeader({ data }) {
               y={-160}
               x={52}
               onMouseLeave={() => setOpenMenu(false)}
+              onClick={() => setOpenMenu(false)}
             />
           </div>
         </div>

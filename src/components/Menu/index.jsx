@@ -16,6 +16,7 @@ function Menu({
   transformOrigin,
   delay = 0,
   onMouseLeave,
+  onClick,
 }) {
   const [firstRender, setFirstRender] = useState(true);
 
@@ -33,6 +34,7 @@ function Menu({
       })}
       style={{ width, top: x, left: y, transformOrigin }}
       onMouseLeave={onMouseLeave}
+      onClick={onClick}
     >
       {menuItems.map((item, index) => (
         <ClickAnimation key={index}>
