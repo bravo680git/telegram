@@ -31,4 +31,16 @@
       transform: scale(1);
     }
   }
+
+  &.round {
+    border-radius: 50%;
+
+    .check {
+      background-color: var(--sub-color);
+    }
+
+    .checked {
+      border-radius: 50%;
+    }
+  }
 }

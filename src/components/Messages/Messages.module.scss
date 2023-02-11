@@ -14,8 +14,67 @@
 }
 
 .body {
-  width: 728px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+.selected-nums {
+  background-color: var(--main-bg);
+  border-radius: 16px;
+  height: 46px;
+  width: 460px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 2px 10px;
+
+  .close-btn {
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .nums {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+
+    span {
+      font-size: 16px;
+      margin-left: 12px;
+    }
+
+    cursor: pointer;
+  }
+
+  .forward-btn {
+    margin-left: 60px;
+    color: var(--main-txt);
+
+    svg {
+      transform: scaleX(-1);
+    }
+
+    &:hover {
+      background: var(--main-hover);
+    }
+  }
+
+  .delete-btn {
+    margin-left: 12px;
+    color: var(--main-red);
+
+    &:hover {
+      background: var(--sub-red);
+    }
+  }
 }

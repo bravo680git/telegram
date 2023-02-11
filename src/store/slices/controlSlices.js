@@ -4,6 +4,7 @@ const initialState = {
   sidebar: "start",
   content: "main",
   rightSidebar: null,
+  selectMessages: false,
 };
 
 const controlSlice = createSlice({
@@ -22,9 +23,17 @@ const controlSlice = createSlice({
       ...state,
       rightSidebar: action.payload,
     }),
+    toogleOthersControl: (state, action) => ({
+      ...state,
+      [action.payload]: !state[action.payload],
+    }),
   },
 });
 
 export default controlSlice.reducer;
-export const { setSidebarControl, setContentControl, setRightSidebarControl } =
-  controlSlice.actions;
+export const {
+  setSidebarControl,
+  setContentControl,
+  setRightSidebarControl,
+  toogleOthersControl,
+} = controlSlice.actions;

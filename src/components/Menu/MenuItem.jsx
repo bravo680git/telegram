@@ -8,6 +8,7 @@ import {
   setSidebarControl,
   setContentControl,
   setRightSidebarControl,
+  toogleOthersControl,
 } from "store/slices/controlSlices";
 import { setCurrentChat } from "store/slices/chatSlice";
 import style from "./Menu.module.scss";
@@ -58,6 +59,10 @@ function MenuItem({
 
       case "rightsidebar":
         dispatch(setRightSidebarControl(control.split("-")[1]));
+        break;
+
+      case "others":
+        dispatch(toogleOthersControl(control.split("-")[1]));
         break;
 
       default:

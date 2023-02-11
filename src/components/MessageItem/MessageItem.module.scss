@@ -1,25 +1,41 @@
 .wrapper {
-  align-self: flex-end;
-  padding: 8px 8px 2px 8px;
-  background-color: var(--third-color);
-  color: var(--main-txt);
-  border-radius: 10px;
-  max-width: 300px;
-  margin-top: 8px;
-  font-size: 0.88rem;
+  padding: 4px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: background-color 0.2s;
+
+  &.selected {
+    background-color: var(--light-green);
+  }
 }
 
-.wrapper.left {
-  align-self: flex-start;
+.container {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 12px;
+  width: 728px;
 }
 
 .wrapper.center {
-  align-items: center;
+  .container {
+    justify-content: center;
+  }
+}
+
+.wrapper.left {
+  .container {
+    justify-content: flex-start;
+  }
 }
 
 .wrapper.left,
 .wrapper.center {
-  background-color: var(--main-bg);
+  .content {
+    background-color: var(--main-bg);
+  }
   .detail {
     color: var(--sub-txt);
   }
@@ -28,6 +44,12 @@
 .content {
   display: flex;
   align-items: center;
+  max-width: 300px;
+  padding: 8px 8px 2px 8px;
+  background-color: var(--third-color);
+  color: var(--main-txt);
+  border-radius: 10px;
+  font-size: 0.88rem;
 }
 
 .message {

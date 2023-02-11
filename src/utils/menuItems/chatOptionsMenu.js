@@ -41,6 +41,7 @@ const CHAT_OPTIONS_MENUS = {
     {
       text: "Select Messages",
       icon: AiOutlineCheckCircle,
+      control: "others-selectMessages",
     },
     {
       text: "Share contact",

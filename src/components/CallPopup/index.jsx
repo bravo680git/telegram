@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import classnames from "classnames/bind";
 import { AiOutlineClose } from "react-icons/ai";
 import {
@@ -19,6 +20,7 @@ const cx = classnames.bind(style);
 function CallPopup({ onClose }) {
   const [fullScreen, setFullScreen] = useState(false);
   const wrapperRef = useRef();
+  const currentChat = useSelector((state) => state.chat.currentChat);
 
   const viewFullScreen = () => {
     setFullScreen(true);
@@ -72,10 +74,10 @@ function CallPopup({ onClose }) {
           </div>
 
           <div className={cx("body")}>
-            <div className={cx("name")}>Hao</div>
+            <div className={cx("name")}>{currentChat.name}</div>
             <div className={cx("status")}>Ringing...</div>
             <div className={cx("avatar")}>
-              <div>H</div>
+              <div>{currentChat.name?.[0]}</div>
             </div>
           </div>
 
