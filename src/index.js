@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import App from "./App";
-import Test from "./Test";
 import store from "./store";
 import reportWebVitals from "./reportWebVitals";
 import "./index.scss";
@@ -15,7 +14,6 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/test" element={<Test />} />
           <Route path="/" element={<App />} />
         </Routes>
       </BrowserRouter>

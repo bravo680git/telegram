@@ -17,6 +17,7 @@ function Menu({
   delay = 0,
   onMouseLeave,
   onClick,
+  round,
 }) {
   const [firstRender, setFirstRender] = useState(true);
 
@@ -46,6 +47,7 @@ function Menu({
             href={item.href}
             delay={delay}
             type={item.type}
+            round={round}
           />
         </ClickAnimation>
       ))}

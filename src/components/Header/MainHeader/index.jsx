@@ -85,6 +85,7 @@ function MainHeader({ data }) {
               x={52}
               onMouseLeave={() => setOpenMenu(false)}
               onClick={() => setOpenMenu(false)}
+              round
             />
           </div>
         </div>
