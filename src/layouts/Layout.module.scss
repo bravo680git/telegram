@@ -1,9 +1,16 @@
 .wrapper {
-  width: 1680px;
+  max-width: 1680px;
   margin: 0 auto;
   display: flex;
   background-color: var(--main-bg);
   color: var(--main-txt);
+
+  @media screen and (max-width: 920px) {
+    .content,
+    .sidebar {
+      border: none;
+    }
+  }
 }
 
 .sidebar {
@@ -26,7 +33,7 @@
   position: relative;
   border: var(--main-border);
   border-top: none;
-  background: url("../assets/images/background.jpg");
-  background-size: cover;
   transition: width 0.3s;
+  background: url("/assets/images/background.jpg");
+  background-size: cover;
 }

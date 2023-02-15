@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   sidebar: "start",
-  content: "main",
+  content: null,
   rightSidebar: null,
   selectMessages: false,
+  smallScreen: false,
 };
 
 const controlSlice = createSlice({
@@ -27,6 +28,14 @@ const controlSlice = createSlice({
       ...state,
       [action.payload]: !state[action.payload],
     }),
+    setSmallScreen: (state, action) => ({
+      ...state,
+      smallScreen: action.payload,
+    }),
+    setMultiControls: (state, action) => ({
+      ...state,
+      ...action.payload,
+    }),
   },
 });
 
@@ -36,4 +45,6 @@ export const {
   setContentControl,
   setRightSidebarControl,
   toogleOthersControl,
+  setSmallScreen,
+  setMultiControls,
 } = controlSlice.actions;

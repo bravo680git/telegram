@@ -17,7 +17,10 @@ import ClickAnimation from "components/ClickAnimation";
 import NotifyText from "components/NotifyText";
 import SlideMenu from "components/SlideMenu";
 import Button from "components/Button";
-import { setRightSidebarControl } from "store/slices/controlSlices";
+import {
+  setContentControl,
+  setRightSidebarControl,
+} from "store/slices/controlSlices";
 import style from "./RightSidebarLayout.module.scss";
 
 const cx = classnames.bind(style);
@@ -32,6 +35,7 @@ function ProfileSidebarLayout({ actived }) {
 
   const handleClose = () => {
     dispatch(setRightSidebarControl(null));
+    dispatch(setContentControl("main"));
   };
 
   const copyToClipboard = () => {

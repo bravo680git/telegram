@@ -16,7 +16,8 @@
   display: flex;
   justify-content: flex-end;
   margin-left: 12px;
-  width: 728px;
+  max-width: 728px;
+  width: 100%;
 }
 
 .wrapper.center {
