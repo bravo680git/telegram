@@ -26,6 +26,8 @@ const MENU_ITEMS = [
   {
     text: "Dark Mode",
     icon: BsMoonStars,
+    switchBtn: true,
+    control: "others-darkMode",
   },
   {
     text: "Animations",

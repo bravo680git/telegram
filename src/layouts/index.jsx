@@ -14,15 +14,22 @@ import { setSmallScreen, setMultiControls } from "store/slices/controlSlices";
 const cx = classNames.bind(style);
 
 function Layout() {
-  const { sidebar, content, rightSidebar, smallScreen } = useSelector(
+  const { sidebar, content, rightSidebar, smallScreen, darkMode } = useSelector(
     (state) => state.control
   );
   const currentChat = useSelector((state) => state.chat.currentChat);
   const dispatch = useDispatch();
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 920);
-  useEffect(() => {
-    document.querySelector("html").setAttribute("data-theme", "light");
 
+  useEffect(() => {
+    if (darkMode) {
+      document.querySelector("html").setAttribute("data-theme", "dark");
+    } else {
+      document.querySelector("html").setAttribute("data-theme", "light");
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
     if (window.innerWidth < 920) {
       dispatch(
         setMultiControls({

@@ -48,6 +48,7 @@ function Menu({
             delay={delay}
             type={item.type}
             round={round}
+            switchBtn={item.switchBtn}
           />
         </ClickAnimation>
       ))}

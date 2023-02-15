@@ -74,12 +74,12 @@ function MenuItem({
   const handleCLick = () => {
     setActived(true);
     setTimeout(() => {
+      if (checkbox || switchBtn) setChecked((state) => !state);
+      if (radio) setChecked(true);
+      if (onClick) onClick();
       if (href) return window.open(href);
       if (control) return handleChangeControl();
       if (currentChat) return dispatch(setCurrentChat(currentChat));
-      if (onClick) onClick();
-      if (checkbox || switchBtn) setChecked((state) => !state);
-      if (radio) setChecked(true);
     }, delay);
   };
 

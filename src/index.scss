@@ -52,7 +52,7 @@ html[data-theme="light"]:root {
   --sub-txt: #707579;
 
   --main-border: 1px solid #dfe1e5;
-  --sub-border: 2px solid #3390ec;
+  --sub-border: 1px solid #e6e7ea;
 
   --primary-color: #3390ec;
   --sub-color: #4fae4e;
@@ -60,6 +60,34 @@ html[data-theme="light"]:root {
 
   --main-red: #df3f40;
   --sub-red: #fcf0f0;
+
+  --light-green: rgba(0, 128, 0, 0.199);
+
+  --toast-bg: rgba(0, 0, 0, 0.3);
+
+  --main-hover: rgba(112, 117, 121, 0.08);
+  --sub-hover: rgba(112, 117, 121, 0.274);
+
+  --menu-box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.24);
+}
+
+html[data-theme="dark"]:root {
+  //color
+  --main-bg: #212121;
+  --sub-bg: #181818;
+
+  --main-txt: #f7f7f7;
+  --sub-txt: #a0a0a0;
+
+  --main-border: none;
+  --sub-border: 1px solid #2e2e2e;
+
+  --primary-color: #8774e1;
+  --sub-color: #c3bbe9;
+  --third-color: #7e6dd1;
+
+  --main-red: #df3f40;
+  --sub-red: rgba(255, 89, 90, 0.08);
 
   --light-green: rgba(0, 128, 0, 0.199);
 

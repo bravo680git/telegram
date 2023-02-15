@@ -148,8 +148,7 @@
       flex: 9;
       display: flex;
       align-items: center;
-      outline: var(--main-border);
-      border: 2px solid var(--main-bg);
+      border: var(--sub-border);
       border-radius: 50px;
       margin-left: 4px;
 
@@ -168,10 +167,11 @@
         border-radius: 50px;
         font-size: 1rem;
         caret-color: var(--primary-color);
+        background-color: var(--main-bg);
       }
 
       &:focus-within {
-        border: var(--sub-border);
+        border: 2px solid var(--primary-color);
 
         .icon {
           color: var(--primary-color);
